@@ -174,7 +174,7 @@ const TESTIMONIALS = [
   },
   {
     name: "Gerry D.",
-    role: "Head of Development, Webidoo SPA",
+    role: "Head of Development, Ticketmaster",
     quote:
       "I had an outstanding experience with ProdUX! Their expertise in product analysis, design, and launch was invaluable.",
   },
