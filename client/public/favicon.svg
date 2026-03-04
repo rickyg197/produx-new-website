@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#0272D9"/>
+  <!-- P letterform -->
+  <path d="M5 8H9.5C11.985 8 14 10.015 14 12.5C14 14.985 11.985 17 9.5 17H7V24H5V8ZM7 15H9.5C10.881 15 12 13.881 12 12.5C12 11.119 10.881 10 9.5 10H7V15Z" fill="white"/>
+  <!-- X letterform -->
+  <path d="M17 8L20.5 13.2L24 8H26.5L21.7 14.9L27 22H24.4L20.5 16.6L16.6 22H14L19.3 14.9L14.5 8H17Z" fill="white"/>
+</svg>
