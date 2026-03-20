@@ -10,6 +10,7 @@ import Methodology from "./pages/Methodology";
 import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import About from "./pages/About";
+import Products from "./pages/Products";
 
 function Router() {
   return (
@@ -20,6 +21,7 @@ function Router() {
       <Route path={"/contact"} component={Contact} />
       <Route path={"/faq"} component={FAQ} />
       <Route path={"/about"} component={About} />
+      <Route path={"/products"} component={Products} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>
