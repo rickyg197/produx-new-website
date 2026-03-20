@@ -26,6 +26,7 @@ const ABOUT_HERO_IMG = "/assets/about-hero.png";
 const RICKY_IMG = "/assets/ricky-gordon.jpg";
 const STEVEN_IMG = "/assets/steven-gianakouros.jpeg";
 const FEDERICO_IMG = "/assets/federico-salvitte.jpeg";
+const STEVE_MORGAN_IMG = "/assets/Steve-Morgan.jpeg";
 
 const FUBO_LOGO = "/assets/fubo-logo.png";
 const YAHOO_LOGO = "/assets/yahoo-logo.png";
@@ -39,27 +40,44 @@ const STATS = [
   { value: "25+", label: "Years Experience" },
 ];
 
-const TEAM = [
+const LEADERSHIP_TEAM = [
   {
     name: "Ricky Gordon",
-    title: "Chief Product Officer & Advisor",
-    experience: "25+ years experience in product strategy and development",
+    title: "Founder & CEO",
+    description: "Fractional CPO and product strategist. 25+ years across product, engineering, and organisational design in the US, UK, and Europe.",
     image: RICKY_IMG,
     linkedin: "https://www.linkedin.com/in/rickygordon",
   },
   {
     name: "Steven Gianakouros",
-    title: "Chief Design Officer & Advisor",
-    experience: "15+ years experience in software architecture",
+    title: "Chief Design Officer",
+    description: "Former Netflix Design Manager and VP of Design at Magic. Expert in product design, brand systems, and UX at a global scale.",
     image: STEVEN_IMG,
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/kouros/",
   },
   {
     name: "Federico Salvitte",
-    title: "Chief Marketing Officer & Advisor",
-    experience: "8+ years experience in UX/UI design",
+    title: "Chief Marketing Officer",
+    description: "Brand strategy, go-to-market, and growth. Deep expertise across European and US markets in technology and professional services.",
     image: FEDERICO_IMG,
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/federicosalvitti/",
+  },
+];
+
+const BOARD_OF_DIRECTORS = [
+  {
+    name: "Steve Morgan",
+    title: "Board Director — Finance & FinTech Strategy",
+    description: "Co-Founder of Cultivating Solutions. Former Director at Lehman Brothers and 14-year Citi veteran across Global Markets, Prime Brokerage, and ICG Operations.",
+    image: STEVE_MORGAN_IMG,
+    linkedin: "https://www.linkedin.com/in/steven-morgan-a10080138/",
+  },
+  {
+    name: "Federico Salvitte",
+    title: "Board Director",
+    description: "Also serves as Chief Marketing Officer across PRODUX client engagements and advisory work.",
+    image: FEDERICO_IMG,
+    linkedin: "https://www.linkedin.com/in/federicosalvitti/",
   },
 ];
 
@@ -248,6 +266,9 @@ export default function About() {
                   <p>
                     Our commitment to alignment-first strategy and deep cross-Atlantic pattern recognition
                     ensures that every engagement begins with clarity and ends with measurable results.
+                    As PRODUX grows, so does the team &mdash; we&rsquo;re building a network of exceptional
+                    fractional specialists who share our commitment to outcome-driven product leadership,
+                    and placing them with the same rigour we&rsquo;d apply to hiring for our own organisation.
                   </p>
                 </div>
               </div>
@@ -262,10 +283,10 @@ export default function About() {
           <SectionReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-electric font-mono text-sm font-medium tracking-wider uppercase">
-                Our Team
+                The Team
               </span>
               <h2 className="mt-3 text-3xl lg:text-4xl font-extrabold text-navy tracking-tight">
-                A Team of Passionate Product Experts
+                Leadership &amp; Advisory Board
               </h2>
               <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
                 Our diverse team brings together decades of experience in product development,
@@ -275,10 +296,14 @@ export default function About() {
             </div>
           </SectionReveal>
 
-          <StaggerContainer className="grid md:grid-cols-3 gap-8">
-            {TEAM.map((member) => (
-              <StaggerItem key={member.name}>
-                <div className="group relative bg-warm-white rounded-xl p-8 border border-border hover:border-electric/30 transition-all duration-300 hover:shadow-lg hover:shadow-electric/5 text-center">
+          {/* Leadership Team */}
+          <SectionReveal>
+            <h3 className="text-xl font-bold text-navy mb-8">Leadership Team</h3>
+          </SectionReveal>
+          <StaggerContainer className="grid md:grid-cols-3 gap-8 items-stretch">
+            {LEADERSHIP_TEAM.map((member) => (
+              <StaggerItem key={member.name} className="h-full">
+                <div className="group relative bg-warm-white rounded-xl p-8 border border-border hover:border-electric/30 transition-all duration-300 hover:shadow-lg hover:shadow-electric/5 text-center h-full flex flex-col">
                   <div className="relative inline-block mb-6">
                     <div className="w-28 h-28 rounded-full overflow-hidden mx-auto ring-2 ring-border group-hover:ring-electric/30 transition-all">
                       <img
@@ -290,17 +315,63 @@ export default function About() {
                   </div>
                   <h3 className="text-lg font-bold text-navy">{member.name}</h3>
                   <p className="text-electric text-sm font-medium mt-1">{member.title}</p>
-                  <p className="text-muted-foreground text-sm mt-3 leading-relaxed">
-                    {member.experience}
+                  <p className="text-muted-foreground text-sm mt-3 leading-relaxed flex-1">
+                    {member.description}
                   </p>
                   <a
                     href={member.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center w-9 h-9 mt-5 rounded-lg bg-electric/10 hover:bg-electric/20 text-electric transition-colors"
+                    className="inline-flex items-center justify-center w-9 h-9 mt-5 rounded-lg bg-electric/10 hover:bg-electric/20 text-electric transition-colors mx-auto"
                   >
                     <Linkedin size={16} />
                   </a>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+
+          {/* Divider */}
+          <div className="my-16 border-t border-border" />
+
+          {/* Board of Directors */}
+          <SectionReveal>
+            <h3 className="text-xl font-bold text-navy mb-8">Board of Directors</h3>
+          </SectionReveal>
+          <StaggerContainer className="grid md:grid-cols-2 gap-8 max-w-2xl items-stretch">
+            {BOARD_OF_DIRECTORS.map((member) => (
+              <StaggerItem key={member.name + member.title} className="h-full">
+                <div className="group relative bg-warm-white rounded-xl p-8 border border-border hover:border-electric/30 transition-all duration-300 hover:shadow-lg hover:shadow-electric/5 text-center h-full flex flex-col">
+                  <div className="relative inline-block mb-6">
+                    <div className="w-28 h-28 rounded-full overflow-hidden mx-auto ring-2 ring-border group-hover:ring-electric/30 transition-all bg-navy/10 flex items-center justify-center">
+                      {member.image ? (
+                        <img
+                          src={member.image}
+                          alt={member.name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <span className="text-navy/30 text-4xl font-bold">
+                          {member.name.charAt(0)}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                  <h3 className="text-lg font-bold text-navy">{member.name}</h3>
+                  <p className="text-electric text-sm font-medium mt-1">{member.title}</p>
+                  <p className="text-muted-foreground text-sm mt-3 leading-relaxed flex-1">
+                    {member.description}
+                  </p>
+                  {member.linkedin && (
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center w-9 h-9 mt-5 rounded-lg bg-electric/10 hover:bg-electric/20 text-electric transition-colors mx-auto"
+                    >
+                      <Linkedin size={16} />
+                    </a>
+                  )}
                 </div>
               </StaggerItem>
             ))}

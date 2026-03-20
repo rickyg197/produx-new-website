@@ -47,7 +47,7 @@ const FAQ_DATA: FAQCategory[] = [
       {
         question: "What services does PRODUX offer?",
         answer:
-          "We offer two core services: (1) Strategic Product Advisory & Product Architecture \u2014 direct partnership for Founders, Boards, and VCs, and (2) Fractional Product Leadership \u2014 outcome-driven Fractional CPOs and Heads of Product. Both services begin with our proprietary Tri-Party Co-Creation methodology.",
+          "We offer three core services: (1) Strategic Product Advisory & Product Architecture \u2014 direct partnership for Founders, Boards, and VCs, (2) Fractional Product Leadership \u2014 outcome-driven Fractional CPOs and Heads of Product, and (3) Fractional Talent Placement, where we source and embed senior fractional product specialists directly into client teams. All services begin with our proprietary Tri-Party Co-Creation methodology.",
       },
       {
         question: "How does pricing work?",
@@ -58,6 +58,26 @@ const FAQ_DATA: FAQCategory[] = [
         question: "What is the Architecture Phase?",
         answer:
           "The Architecture Phase is our paid foundational engagement (Phase 02). This is where the real work begins \u2014 we conduct the Tri-Party Co-Creation workshop, design the leadership seat, and build a board-ready 90-day execution strategy. This phase is the foundation upon which all subsequent work is built.",
+      },
+    ],
+  },
+  {
+    title: "Fractional Talent Placement",
+    items: [
+      {
+        question: "Can PRODUX place a fractional PM or designer into my team?",
+        answer:
+          "Yes. Alongside our advisory and fractional CPO services, we source and place senior fractional product talent — PMs, designers, and product leaders — directly into client teams. Every placement is vetted personally. Visit our Placements page to learn more.",
+      },
+      {
+        question: "How do you vet the people you place?",
+        answer:
+          "Everyone in our placement network has been assessed directly by Ricky — either through prior collaboration, a structured skills review, or both. We only place people we'd hire ourselves.",
+      },
+      {
+        question: "What's the difference between a PRODUX advisory engagement and a placement?",
+        answer:
+          "Advisory engagements are led by Ricky directly — strategic, high-level, focused on architecture and direction. Placements are about execution — we embed a senior fractional specialist into your team to build and deliver alongside your people.",
       },
     ],
   },

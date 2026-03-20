@@ -72,7 +72,7 @@ const PHASES = [
     badge: null,
     badgeColor: "",
     description:
-      "Active leadership led by your Product Architect or a vetted specialist. This is where the rubber meets the road\u2014your 90-day roadmap comes to life with hands-on fractional leadership.",
+      "Your 90-day roadmap comes to life here — led directly by Ricky or by a PRODUX-placed fractional specialist. Either way, we stay involved. We don't hand off and disappear.",
     details: [
       "Fractional CPO/Head of Product",
       "Sprint planning & oversight",

@@ -11,6 +11,7 @@ import { openCalendly } from "@/lib/utils";
 const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
+  { href: "/placements", label: "Placements" },
   { href: "/about", label: "About" },
   { href: "/methodology", label: "Methodology" },
   { href: "/faq", label: "FAQ" },

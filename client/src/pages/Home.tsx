@@ -82,7 +82,7 @@ const PHASES = [
     title: "Execution",
     badge: null,
     badgeColor: "",
-    description: "Active leadership led by your Product Architect or a vetted specialist.",
+    description: "Your 90-day roadmap comes to life here — led directly by Ricky or by a PRODUX-placed fractional specialist. Either way, we stay involved. We don't hand off and disappear.",
     icon: Rocket,
   },
   {
@@ -161,22 +161,22 @@ const CASE_STUDIES = [
 
 const TESTIMONIALS = [
   {
-    name: "Madeleine J.",
-    role: "Senior Account Manager, Synup",
+    name: "Adrian Araldi",
+    role: "Head of Product, Webidoo",
     quote:
-      "ProdUX is the real deal! The founder is great to work with, too. Highly recommend!",
+      "ProdUX is the kind of partner every product team needs. They excel at bridging the gap between high-level vision and tactical execution — clear communication and a level of technical insight that keeps projects moving forward efficiently. Highly recommended for any organisation looking to scale their digital product capabilities.",
   },
   {
-    name: "Adrian A.",
-    role: "Head of Product, Webidoo SPA",
+    name: "Niousha Roshani",
+    role: "Co-Founder, NEEW.io",
     quote:
-      "Produx support and experience have been pivotal to the work I am doing as Head of Product.",
+      "The team's expertise at ProdUX is unparalleled, and helped us bring a complex product to life on a global scale.",
   },
   {
-    name: "Gerry D.",
-    role: "Head of Development, Ticketmaster",
+    name: "Tony Delledera",
+    role: "Head of Engineering, Stealth Start-Up",
     quote:
-      "I had an outstanding experience with ProdUX! Their expertise in product analysis, design, and launch was invaluable.",
+      "Their expertise in product analysis, design, and launch was invaluable in bringing my business to life. Ricky is an incredibly professional person, making collaboration both smooth and inspiring.",
   },
 ];
 
@@ -239,7 +239,7 @@ export default function Home() {
                 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight"
               >
                 Fractional Product Leadership{" "}
-                <span className="text-electric">That Actually Works</span>
+                <span className="text-electric">for Companies Ready to Scale</span>
               </motion.h1>
 
               <motion.p
@@ -248,8 +248,9 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.35 }}
                 className="mt-6 text-lg text-slate-text leading-relaxed max-w-lg"
               >
-                We don&rsquo;t just place talent&mdash;we co-create the role. Scale faster with a
-                Product Architect who bridges the gap between strategy and execution.
+                We connect ambitious companies with exceptional product leadership &mdash; and place
+                the right fractional talent to execute it. Not matched by an algorithm. Selected by
+                a CPO.
               </motion.p>
 
               <motion.div

@@ -21,6 +21,7 @@ export default function Contact() {
     phone: "",
     industry: "",
     companySize: "",
+    enquiryType: "",
     outcome: "",
     message: "",
   });
@@ -45,6 +46,7 @@ export default function Contact() {
         phone: "",
         industry: "",
         companySize: "",
+        enquiryType: "",
         outcome: "",
         message: "",
       });
@@ -202,8 +204,29 @@ export default function Contact() {
 
                 <div className="mt-5">
                   <label className="block text-sm font-medium text-navy mb-1.5">
-                    What is the specific outcome you need to achieve in the next 90 days?{" "}
-                    <span className="text-red-500">*</span>
+                    What are you looking for? <span className="text-red-500">*</span>
+                  </label>
+                  <select
+                    name="enquiryType"
+                    required
+                    value={formData.enquiryType}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-warm-white border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-electric/30 focus:border-electric transition-all"
+                  >
+                    <option value="" disabled>Select one...</option>
+                    <option value="fractional-leadership">I need fractional product leadership for my business</option>
+                    <option value="place-fractional">I want to place a fractional PM or designer into my team</option>
+                    <option value="advisory">I'm interested in advisory support</option>
+                    <option value="other">Something else</option>
+                  </select>
+                </div>
+
+                <div className="mt-5">
+                  <label className="block text-sm font-medium text-navy mb-1.5">
+                    {formData.enquiryType === "place-fractional"
+                      ? "Tell us about the role and team you're hiring for"
+                      : "What is the specific outcome you need to achieve in the next 90 days?"}
+                    {" "}<span className="text-red-500">*</span>
                   </label>
                   <textarea
                     name="outcome"
