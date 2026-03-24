@@ -66,6 +66,13 @@ const LEADERSHIP_TEAM = [
 
 const BOARD_OF_DIRECTORS = [
   {
+    name: "Ricky Gordon",
+    title: "Chairman",
+    description: "Also serves as Founder & CEO, leading strategy and fractional CPO engagements across all PRODUX client work.",
+    image: RICKY_IMG,
+    linkedin: "https://www.linkedin.com/in/rickygordon",
+  },
+  {
     name: "Steve Morgan",
     title: "Board Director — Finance & FinTech Strategy",
     description: "Co-Founder of Cultivating Solutions. Former Director at Lehman Brothers and 14-year Citi veteran across Global Markets, Prime Brokerage, and ICG Operations.",
@@ -338,7 +345,7 @@ export default function About() {
           <SectionReveal>
             <h3 className="text-xl font-bold text-navy mb-8">Board of Directors</h3>
           </SectionReveal>
-          <StaggerContainer className="grid md:grid-cols-2 gap-8 max-w-2xl items-stretch">
+          <StaggerContainer className="grid md:grid-cols-3 gap-8 items-stretch">
             {BOARD_OF_DIRECTORS.map((member) => (
               <StaggerItem key={member.name + member.title} className="h-full">
                 <div className="group relative bg-warm-white rounded-xl p-8 border border-border hover:border-electric/30 transition-all duration-300 hover:shadow-lg hover:shadow-electric/5 text-center h-full flex flex-col">
