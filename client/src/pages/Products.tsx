@@ -10,6 +10,7 @@ const PRODUCTS = [
     asin: "B0DGXHNQVQ",
     title: "Product 1",
     url: "https://amzn.to/4bn9RJO",
+    image: "https://m.media-amazon.com/images/I/71a98LCjpoL._AC_SX679_.jpg",
   },
   {
     asin: "B0CCGC1V3N",
@@ -25,17 +26,25 @@ const PRODUCTS = [
     asin: "B0CCXSPJ83",
     title: "Product 4",
     url: "https://amzn.to/47JJ9Kt",
+    image: "https://m.media-amazon.com/images/I/41BTvPQ-VuL._AC_SX679_.jpg",
   },
   {
     asin: "B0DPW7HN23",
     title: "Product 5",
     url: "https://amzn.to/4blzj3J",
+    image: "https://m.media-amazon.com/images/I/71RMCqQPZBL._AC_SX679_PIbundle-10,TopRight,0,0_SH20_.jpg",
   },
 ];
 
-function ProductCard({ asin, title, url }: { asin: string; title: string; url: string }) {
-  const [imgError, setImgError] = useState(false);
-  const imageUrl = `https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg`;
+const IMAGE_URLS = (asin: string) => [
+  `https://m.media-amazon.com/images/P/${asin}.01._SL1500_.jpg`,
+  `https://images-na.ssl-images-amazon.com/images/P/${asin}.01.LZZZZZZZ.jpg`,
+];
+
+function ProductCard({ asin, title, url, image }: { asin: string; title: string; url: string; image?: string }) {
+  const [urlIndex, setUrlIndex] = useState(0);
+  const urls = image ? [image, ...IMAGE_URLS(asin)] : IMAGE_URLS(asin);
+  const failed = urlIndex >= urls.length;
 
   return (
     <motion.div
@@ -45,11 +54,11 @@ function ProductCard({ asin, title, url }: { asin: string; title: string; url: s
     >
       {/* Image area */}
       <div className="relative bg-white flex items-center justify-center overflow-hidden" style={{ height: "280px" }}>
-        {!imgError ? (
+        {!failed ? (
           <img
-            src={imageUrl}
+            src={urls[urlIndex]}
             alt={title}
-            onError={() => setImgError(true)}
+            onError={() => setUrlIndex((i) => i + 1)}
             className="w-full h-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
           />
         ) : (
