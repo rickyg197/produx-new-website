@@ -65,13 +65,7 @@ const LEADERSHIP_TEAM = [
 ];
 
 const BOARD_OF_DIRECTORS = [
-  {
-    name: "Ricky Gordon",
-    title: "Chairman",
-    description: "Also serves as Founder & CEO, leading strategy and fractional CPO engagements across all PRODUX client work.",
-    image: RICKY_IMG,
-    linkedin: "https://www.linkedin.com/in/rickygordon",
-  },
+
   {
     name: "Steve Morgan",
     title: "Board Director — Finance & FinTech Strategy",
