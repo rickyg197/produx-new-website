@@ -63,6 +63,12 @@ export default function Footer() {
                   <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
+               <li>
+                <Link href="/placements" className="text-slate-text hover:text-electric text-sm transition-colors flex items-center gap-1 group">
+                  Placements
+                  <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </li>
             </ul>
           </div>
 
