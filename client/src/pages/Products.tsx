@@ -115,7 +115,7 @@ export default function Products() {
                 <span className="text-[oklch(0.60_0.20_260)]">Products</span>
               </h1>
               <p className="text-[oklch(0.70_0.02_260)] text-lg leading-relaxed">
-                Hand-picked products we recommend. Each link supports us — thank you.
+                Hand-picked products we genuinely recommend. Clicking any product will take you to Amazon, and we earn a small commission on qualifying purchases — at no extra cost to you.
               </p>
             </div>
           </SectionReveal>
