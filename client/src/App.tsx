@@ -14,6 +14,14 @@ import About from "./pages/About";
 import Products from "./pages/Products";
 import Placements from "./pages/Placements";
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+const GA_MEASUREMENT_ID = "G-R6SRTNRHGJ";
+
 if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
   window.history.scrollRestoration = "manual";
 }
@@ -23,6 +31,13 @@ function ScrollToTop() {
   useLayoutEffect(() => {
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("config", GA_MEASUREMENT_ID, {
+        page_path: location,
+        page_title: document.title,
+        page_location: window.location.href,
+      });
+    }
   }, [location]);
   return null;
 }

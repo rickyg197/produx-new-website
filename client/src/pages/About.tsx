@@ -56,7 +56,7 @@ const LEADERSHIP_TEAM = [
     linkedin: "https://www.linkedin.com/in/kouros/",
   },
   {
-    name: "Federico Salvitte",
+    name: "Federico Salvitti",
     title: "Chief Marketing Officer",
     description: "Brand strategy, go-to-market, and growth. Deep expertise across European and US markets in technology and professional services.",
     image: FEDERICO_IMG,
@@ -74,7 +74,7 @@ const BOARD_OF_DIRECTORS = [
     linkedin: "https://www.linkedin.com/in/steven-morgan-a10080138/",
   },
   {
-    name: "Federico Salvitte",
+    name: "Federico Salvitti",
     title: "Board Director",
     description: "Also serves as Chief Marketing Officer across PRODUX client engagements and advisory work.",
     image: FEDERICO_IMG,
