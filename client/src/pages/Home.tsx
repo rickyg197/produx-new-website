@@ -677,7 +677,7 @@ export default function Home() {
         <div className="container relative z-10 text-center">
           <SectionReveal>
             <h2 className="text-3xl lg:text-5xl font-extrabold text-white tracking-tight max-w-3xl mx-auto">
-              Not Sure Where the Gap Is? Let\u2019s Find It.
+              Not Sure Where the Gap Is? Let&rsquo;s Find It.
             </h2>
             <p className="mt-6 text-lg text-slate-text max-w-xl mx-auto leading-relaxed">
               Book a complimentary 20-minute Diagnostic Call to identify your alignment gaps.
