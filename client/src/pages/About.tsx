@@ -196,7 +196,7 @@ export default function About() {
                   </p>
                   <p>
                     Every engagement starts with alignment and is measured on outcomes. Alongside my own
-                    advisory work, I place senior fractional specialists who share that commitment, with
+                    advisory work, I place senior product people, fractional and full-time, who share that commitment, with
                     the same rigor I would apply to hiring for my own team.
                   </p>
                 </div>

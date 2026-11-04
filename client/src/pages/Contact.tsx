@@ -224,7 +224,7 @@ export default function Contact() {
                   >
                     <option value="" disabled>Select one...</option>
                     <option value="fractional-leadership">I need fractional product leadership for my business</option>
-                    <option value="place-fractional">I want to place a fractional PM or designer into my team</option>
+                    <option value="place-fractional">I want to hire a PM, designer or product leader (fractional or full-time)</option>
                     <option value="advisory">I'm interested in the advisory retainer</option>
                     <option value="other">Something else</option>
                   </select>

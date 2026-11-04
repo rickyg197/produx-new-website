@@ -1,5 +1,5 @@
 /*
- * PRODUX Placements Page — Fractional Talent Placement
+ * PRODUX Placements Page: fractional and full-time talent placement
  * Dark navy + electric blue + emerald accents, matching site design system
  */
 import Navbar from "@/components/Navbar";
@@ -46,7 +46,7 @@ const HOW_IT_WORKS = [
   {
     step: "02",
     title: "Vetted the way I'd hire for myself",
-    body: "I personally assess everyone in my network: how they think, how they handle ambiguity, and whether they have the judgment a fractional role requires. You meet one person. The right one.",
+    body: "I personally assess everyone in my network: how they think, how they handle ambiguity, and whether they have the judgment the role requires. You meet one person. The right one.",
   },
   {
     step: "03",
@@ -56,12 +56,12 @@ const HOW_IT_WORKS = [
 ];
 
 const ROLES_WE_PLACE = [
-  "Fractional Product Manager",
-  "Fractional Head of Product",
-  "Fractional UX / Product Designer",
-  "Fractional Product Strategist",
-  "Fractional AI Product Lead",
-  "Fractional Chief Product Officer",
+  "Product Manager",
+  "Head of Product",
+  "UX / Product Designer",
+  "Product Strategist",
+  "AI Product Lead",
+  "Chief Product Officer",
 ];
 
 export default function Placements() {
@@ -86,14 +86,14 @@ export default function Placements() {
             <SectionReveal>
               <div>
                 <span className="text-emerald font-mono text-sm font-medium tracking-wider uppercase">
-                  Fractional Talent
+                  Product Talent
                 </span>
                 <h1 className="mt-4 text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
                   The Right Person.{" "}
                   <span className="text-electric">Placed by Someone Who&rsquo;s Done the Job.</span>
                 </h1>
                 <p className="mt-6 text-lg text-slate-text leading-relaxed max-w-lg">
-                  Most agencies match resumes. I place fractional product talent the way a CPO hires
+                  Most agencies match resumes. I place product talent, fractional and full-time, the way a CPO hires
                   for their own team.
                 </p>
                 <Link
@@ -111,7 +111,7 @@ export default function Placements() {
                 <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/30">
                   <img
                     src={PLACEMENTS_HERO_IMG}
-                    alt="Fractional talent placement collaboration"
+                    alt="Product talent placement collaboration"
                     className="w-full h-auto object-cover aspect-[4/3]"
                   />
                 </div>
@@ -216,6 +216,9 @@ export default function Placements() {
               <h2 className="text-3xl lg:text-4xl font-extrabold text-navy tracking-tight">
                 Roles I Place
               </h2>
+              <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+                Fractional or full-time.
+              </p>
             </div>
           </SectionReveal>
 

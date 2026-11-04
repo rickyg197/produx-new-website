@@ -46,7 +46,7 @@ const SITUATIONS = [
   },
   {
     title: "You know the need but lack the people",
-    description: "Add a senior fractional PM, designer or product leader, selected by a CPO, not matched by an algorithm.",
+    description: "Add a senior PM, designer or product leader, fractional or full-time, selected by a CPO, not matched by an algorithm.",
     linkLabel: "See placements",
     href: "/placements",
   },
@@ -105,7 +105,7 @@ const PHASES = [
     title: "Execution",
     badge: null,
     badgeColor: "",
-    description: "Your 90-day roadmap comes to life here, led directly by me or by a fractional specialist I place. Either way, I stay involved. I don't hand off and disappear.",
+    description: "Your 90-day roadmap comes to life here, led directly by me or by a specialist I place. Either way, I stay involved. I don't hand off and disappear.",
     icon: Rocket,
   },
   {
@@ -250,8 +250,8 @@ export default function Home() {
                 className="mt-6 text-lg text-slate-text leading-relaxed max-w-lg"
               >
                 Scaling, pivoting, or stuck between the two: I advise your product leader or step in
-                where you don&rsquo;t have one. Need more hands? I place the right fractional talent,
-                selected by a CPO.
+                where you don&rsquo;t have one. Need more hands? I place the right talent, fractional or
+                full-time, selected by a CPO.
               </motion.p>
 
               <motion.div

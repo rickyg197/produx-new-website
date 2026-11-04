@@ -72,7 +72,7 @@ const PHASES = [
     badge: null,
     badgeColor: "",
     description:
-      "Your 90-day roadmap comes to life here, led directly by me or by a fractional specialist I place. Either way, I stay involved. I don't hand off and disappear.",
+      "Your 90-day roadmap comes to life here, led directly by me or by a specialist I place. Either way, I stay involved. I don't hand off and disappear.",
     details: [
       "Fractional CPO/Head of Product",
       "Sprint planning & oversight",
