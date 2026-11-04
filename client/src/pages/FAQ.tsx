@@ -27,7 +27,7 @@ const FAQ_DATA: FAQCategory[] = [
       {
         question: 'What is the "Tri-Party" methodology?',
         answer:
-          "It is the intentional alignment between the Founder/CEO, the Fractional Expert, and the Strategic Roadmap. I make sure all three are synchronized before work begins. It works whether the question is a role to fill, a gap to close, an opportunity to test or a strategy to change, because most product problems come down to misalignment between what the founder envisions, what the product leader delivers, and what the roadmap demands.",
+          "It is the intentional alignment between the Founder/CEO, the person leading the work, and the Strategic Roadmap. I make sure all three are synchronized before work begins. It works whether the question is a role to fill, a gap to close, an opportunity to test or a strategy to change, because most product problems come down to misalignment between what the founder envisions, what the product leader delivers, and what the roadmap demands.",
       },
       {
         question: "What is the 5-Phase Framework?",
@@ -53,6 +53,11 @@ const FAQ_DATA: FAQCategory[] = [
         question: "What is the advisory retainer?",
         answer:
           "Up to 10 hours a month for 3 months, working directly with a CEO or founder whose product has traction, whether you have no senior product leader or one who could use a third-party perspective. It is a cash retainer, with no equity.",
+      },
+      {
+        question: "We already have a product leader. Can you still help?",
+        answer:
+          "Yes. An outside view is often where I add the most: giving your product leader experienced counsel, whether you are scaling or pivoting. I work alongside them, not in place of them.",
       },
       {
         question: "How does pricing work?",
