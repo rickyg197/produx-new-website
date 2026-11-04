@@ -107,6 +107,30 @@ async function sendEmail(lead: Lead) {
   if (error) throw new Error(error.message);
 }
 
+// Returns false only when Cloudflare says the visitor failed. If Cloudflare can't be
+// reached, or the secret isn't set, the lead is kept rather than lost.
+async function passesTurnstile(token: string): Promise<boolean> {
+  const secret = process.env.TURNSTILE_SECRET_KEY;
+  if (!secret) return true;
+  if (!token) return false;
+  try {
+    const response = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ secret, response: token }),
+    });
+    if (!response.ok) {
+      console.error("Turnstile unavailable:", response.status);
+      return true;
+    }
+    const result = (await response.json()) as { success?: boolean };
+    return result.success === true;
+  } catch (error) {
+    console.error("Turnstile unavailable:", error);
+    return true;
+  }
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
@@ -117,6 +141,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   // Hidden field that people never see. Bots fill it in, so report success and drop it.
   if (clean(body.website)) {
     return res.status(200).json({ success: true });
+  }
+
+  if (!(await passesTurnstile(clean(body.turnstileToken, 4096)))) {
+    return res.status(400).json({ error: "Spam check failed" });
   }
 
   const enquiryType = clean(body.enquiryType, 100);

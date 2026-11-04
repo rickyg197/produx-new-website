@@ -4,7 +4,7 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { SectionReveal } from "@/components/SectionReveal";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import {
   Linkedin,
@@ -12,7 +12,62 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY as string | undefined;
+
+type TurnstileApi = {
+  render: (
+    el: HTMLElement,
+    options: {
+      sitekey: string;
+      appearance: string;
+      callback: (token: string) => void;
+      "expired-callback": () => void;
+      "error-callback": () => void;
+    },
+  ) => string;
+  reset: (id: string) => void;
+  remove: (id: string) => void;
+};
+
+function getTurnstile() {
+  return (window as unknown as { turnstile?: TurnstileApi }).turnstile;
+}
+
 export default function Contact() {
+  const turnstileEl = useRef<HTMLDivElement>(null);
+  const turnstileId = useRef<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState("");
+
+  useEffect(() => {
+    if (!TURNSTILE_SITE_KEY) return;
+    const renderWidget = () => {
+      const api = getTurnstile();
+      if (!api || !turnstileEl.current || turnstileId.current) return;
+      turnstileId.current = api.render(turnstileEl.current, {
+        sitekey: TURNSTILE_SITE_KEY,
+        appearance: "interaction-only",
+        callback: setTurnstileToken,
+        "expired-callback": () => setTurnstileToken(""),
+        "error-callback": () => setTurnstileToken(""),
+      });
+    };
+    let script = document.querySelector<HTMLScriptElement>("script[data-turnstile]");
+    if (!script) {
+      script = document.createElement("script");
+      script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+      script.async = true;
+      script.dataset.turnstile = "true";
+      document.head.appendChild(script);
+    }
+    if (getTurnstile()) renderWidget();
+    else script.addEventListener("load", renderWidget);
+    return () => {
+      script?.removeEventListener("load", renderWidget);
+      if (turnstileId.current) getTurnstile()?.remove(turnstileId.current);
+      turnstileId.current = null;
+    };
+  }, []);
+
   const [formData, setFormData] = useState({
     fullName: "",
     companyName: "",
@@ -30,12 +85,16 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (TURNSTILE_SITE_KEY && !turnstileToken) {
+      toast.error("Just a moment while a quick security check finishes, then try again.");
+      return;
+    }
     setIsSubmitting(true);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({ ...formData, turnstileToken }),
       });
       if (!res.ok) throw new Error("Failed");
       toast.success("Thank you! I'll be in touch within 24 hours to schedule your Diagnostic Call.");
@@ -55,6 +114,8 @@ export default function Contact() {
       toast.error("Something went wrong. Please try again.");
     } finally {
       setIsSubmitting(false);
+      setTurnstileToken("");
+      if (turnstileId.current) getTurnstile()?.reset(turnstileId.current);
     }
   };
 
@@ -261,6 +322,8 @@ export default function Contact() {
                     placeholder="Anything else you'd like me to know..."
                   />
                 </div>
+
+                <div ref={turnstileEl} className="mt-5" />
 
                 <button
                   type="submit"
