@@ -249,10 +249,9 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.35 }}
                 className="mt-6 text-lg text-slate-text leading-relaxed max-w-lg"
               >
-                Scaling, pivoting, or stuck between the two. I advise your product leader or step in
-                where you don&rsquo;t have one, with 25 years of experience and an outside view. When
-                you need more hands, I place the right fractional talent: selected by a CPO, not
-                matched by an algorithm.
+                Scaling, pivoting, or stuck between the two: I advise your product leader or step in
+                where you don&rsquo;t have one. Need more hands? I place the right fractional talent,
+                selected by a CPO.
               </motion.p>
 
               <motion.div
