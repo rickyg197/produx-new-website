@@ -31,24 +31,45 @@ const TEAM_IMG = "/assets/team-collaboration.jpg";
 
 const METHODOLOGY_BG = "/assets/methodology-bg.jpg";
 
+const SITUATIONS = [
+  {
+    title: "You have no senior product leader",
+    description: "Get senior product leadership through an advisory retainer or a fractional CPO, without a full-time hire.",
+    linkLabel: "See how I can lead",
+    href: "/services",
+  },
+  {
+    title: "You have a product leader who needs support",
+    description: "Give them a third-party perspective and experienced counsel, whether you are scaling or pivoting.",
+    linkLabel: "See the advisory retainer",
+    href: "#advisory-retainer",
+  },
+  {
+    title: "You know the need but lack the people",
+    description: "Add a senior fractional PM, designer or product leader, selected by a CPO, not matched by an algorithm.",
+    linkLabel: "See placements",
+    href: "/placements",
+  },
+];
+
 const VALUE_PROPS = [
   {
     icon: Target,
     title: "Tri-Party Co-Creation",
     description:
-      "Most fractional hires fail due to misalignment. I treat role definition as product discovery, aligning the Founder, the Expert, and the Roadmap before work begins.",
+      "Most product problems are alignment problems. Before work begins, I align the founder, the person leading the work and the roadmap, whether the question is a role to fill, a gap to close, an opportunity to test or a strategy to change.",
   },
   {
     icon: Globe,
-    title: "25 Years of Pattern Recognition",
+    title: "25 Years Leading Product",
     description:
-      "In product since 2000, from Global Crossing to Ticketmaster, Fubo and Vista. I work with US companies first, and with UK and European firms building for the US market.",
+      "In product since 2000, from Global Crossing to Ticketmaster, Fubo and Vista. I\u2019ve lived and worked on both sides of the Atlantic, and most of my work is with US companies.",
   },
   {
     icon: Search,
     title: "Strategic Gap Analysis",
     description:
-      "I use AI-assisted auditing to identify the distance between your strategy and operational reality, so the work goes into the right problems, not just the visible ones.",
+      "Where are your strategy and your day-to-day furthest apart? I\u2019ve built AI tools that speed up the audit and surface patterns, but the judgment is mine: 25 years of knowing which gaps matter and what to do about them.",
   },
 ];
 
@@ -64,10 +85,10 @@ const PHASES = [
   {
     num: "02",
     title: "Architecture",
-    badge: "PAID FOUNDATIONAL ENGAGEMENT",
+    badge: "FIRST MONTH OF THE RETAINER",
     badgeColor: "bg-electric/20 text-electric",
     description:
-      "The Paid Foundational Engagement. I design the leadership seat and lock in the 90-day execution roadmap.",
+      "I define the problem and the strategy, design the leadership seat if one is needed, and lock in the 90-day roadmap.",
     icon: PenTool,
     highlighted: true,
   },
@@ -107,21 +128,21 @@ const ENGAGEMENT_TIERS = [
     highlighted: false,
   },
   {
-    title: "The Architecture",
-    subtitle: "The Foundation",
-    price: "Fixed-Fee Strategic Engagement",
-    description: "Tri-Party Co-Creation and Board-Ready 90-Day Execution Strategy.",
+    title: "The Advisory Retainer",
+    subtitle: "Up to 10 Hours a Month for 3 Months",
+    price: "Monthly Cash Retainer, No Equity",
+    description: "Senior product judgment for you and your team, starting with a board-ready 90-day execution strategy.",
     features: [
       "Tri-Party Co-Creation workshop",
       "90-Day execution roadmap",
       "Board-ready strategy document",
-      "Leadership seat design",
+      "Outside perspective for your product leader",
     ],
     highlighted: true,
   },
   {
-    title: "The Scale",
-    subtitle: "Fractional Leadership & Oversight",
+    title: "Fractional Leadership",
+    subtitle: "Hands-On Product Leadership",
     price: "Expert Hourly Rate + Retainer",
     description: "Predictable scaling and long-term team retention with ongoing strategic oversight.",
     features: [
@@ -218,8 +239,8 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight"
               >
-                Fractional Product Leadership{" "}
-                <span className="text-electric">for Companies Ready to Scale</span>
+                Senior Product Leadership{" "}
+                <span className="text-electric">for Companies at a Turning Point</span>
               </motion.h1>
 
               <motion.p
@@ -228,8 +249,10 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.35 }}
                 className="mt-6 text-lg text-slate-text leading-relaxed max-w-lg"
               >
-                I give ambitious companies senior product leadership directly, and place the right
-                fractional talent to execute it. Not matched by an algorithm. Selected by a CPO.
+                Scaling, pivoting, or stuck between the two. I advise your product leader or step in
+                where you don&rsquo;t have one, with 25 years of experience and an outside view. When
+                you need more hands, I place the right fractional talent: selected by a CPO, not
+                matched by an algorithm.
               </motion.p>
 
               <motion.div
@@ -279,6 +302,40 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ========== WHERE ARE YOU TODAY ========== */}
+      <section className="py-20 lg:py-28 bg-white">
+        <div className="container">
+          <SectionReveal>
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <h2 className="text-3xl lg:text-4xl font-extrabold text-navy tracking-tight">
+                Where Are You Today?
+              </h2>
+            </div>
+          </SectionReveal>
+          <StaggerContainer className="grid md:grid-cols-3 gap-6 lg:gap-8">
+            {SITUATIONS.map((item) => (
+              <StaggerItem key={item.title} className="h-full">
+                <div className="bg-warm-white rounded-xl p-8 border border-border h-full flex flex-col">
+                  <h3 className="text-xl font-bold text-navy mb-3">{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed flex-1">{item.description}</p>
+                  {item.href.startsWith("#") ? (
+                    <a href={item.href} className="mt-6 inline-flex items-center gap-2 text-electric font-semibold text-sm">
+                      {item.linkLabel}
+                      <ArrowRight size={16} />
+                    </a>
+                  ) : (
+                    <Link href={item.href} className="mt-6 inline-flex items-center gap-2 text-electric font-semibold text-sm">
+                      {item.linkLabel}
+                      <ArrowRight size={16} />
+                    </Link>
+                  )}
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
       {/* ========== VALUE PROPS SECTION ========== */}
       <section className="py-20 lg:py-28 bg-warm-white">
         <div className="container">
@@ -288,11 +345,10 @@ export default function Home() {
                 Why PRODUX
               </span>
               <h2 className="mt-3 text-3xl lg:text-4xl font-extrabold text-navy tracking-tight">
-                High-Velocity Strategy for Global Scale
+                Experience You Are Paying For, Not Software
               </h2>
               <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                I solve for alignment first, so your product organization is built for speed and
-                predictability.
+                AI speeds up my work. Your results come from the judgment behind it.
               </p>
             </div>
           </SectionReveal>
@@ -502,7 +558,7 @@ export default function Home() {
                         : "border border-navy/20 text-navy hover:bg-navy hover:text-white"
                     }`}
                   >
-                    {tier.highlighted ? "Start Architecture Phase" : "Learn More"}
+                    {tier.highlighted ? "Talk to Me About a Retainer" : "Learn More"}
                     <ArrowRight size={16} />
                   </Link>
                 </div>
@@ -523,9 +579,6 @@ export default function Home() {
               <h2 className="mt-3 text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
                 Recent Client Work
               </h2>
-              <p className="mt-4 text-lg text-slate-text leading-relaxed">
-                What I have actually delivered, for companies I can name.
-              </p>
             </div>
           </SectionReveal>
 
@@ -625,11 +678,11 @@ export default function Home() {
         <div className="container relative z-10 text-center">
           <SectionReveal>
             <h2 className="text-3xl lg:text-5xl font-extrabold text-white tracking-tight max-w-3xl mx-auto">
-              Ready to Move from Chaos to Clarity?
+              Not Sure Where the Gap Is? Let\u2019s Find It.
             </h2>
             <p className="mt-6 text-lg text-slate-text max-w-xl mx-auto leading-relaxed">
               Book a complimentary 20-minute Diagnostic Call to identify your alignment gaps.
-              If there is a fit, I will invite you into the Architecture Phase.
+              If there is a fit, the next step is the advisory retainer.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
               <button

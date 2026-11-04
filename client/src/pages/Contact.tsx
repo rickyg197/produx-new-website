@@ -90,8 +90,7 @@ export default function Contact() {
             </h1>
             <p className="mt-6 text-lg text-slate-text leading-relaxed max-w-2xl mx-auto">
               Book a 20-minute Diagnostic Call to identify your alignment gaps. If there is a fit,
-              I will invite you into the Architecture Phase to co-create your custom 90-day
-              roadmap.
+              the next step is the advisory retainer, starting with your custom 90-day roadmap.
             </p>
           </SectionReveal>
         </div>
@@ -317,7 +316,7 @@ export default function Contact() {
                       "I review your submission within 24 hours",
                       "You receive a calendar link for your Diagnostic Call",
                       "20-minute complimentary gap analysis session",
-                      "If there is a fit, I invite you to the Architecture Phase",
+                      "If there is a fit, we discuss the advisory retainer",
                     ].map((step, i) => (
                       <li key={i} className="flex items-start gap-3">
                         <span className="w-6 h-6 rounded-full bg-electric/20 text-electric text-xs font-mono font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -328,7 +327,7 @@ export default function Contact() {
                     ))}
                   </ol>
                   <p className="mt-4 text-xs text-slate-text/60 italic">
-                    Note: The Architecture Phase is a paid foundational engagement.
+                    Note: The advisory retainer is a paid engagement.
                   </p>
                 </div>
               </div>

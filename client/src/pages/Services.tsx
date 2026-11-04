@@ -46,22 +46,22 @@ const ENGAGEMENT_TIERS = [
     highlighted: false,
   },
   {
-    title: "The Architecture",
-    subtitle: "The Foundation",
-    price: "Fixed-Fee Strategic Engagement",
-    description: "Tri-Party Co-Creation and Board-Ready 90-Day Execution Strategy.",
+    title: "The Advisory Retainer",
+    subtitle: "Up to 10 Hours a Month for 3 Months",
+    price: "Monthly Cash Retainer, No Equity",
+    description: "Senior product judgment for you and your team, starting with a board-ready 90-day execution strategy.",
     features: [
       "Tri-Party Co-Creation workshop",
       "90-Day execution roadmap",
       "Board-ready strategy document",
-      "Leadership seat design",
+      "Outside perspective for your product leader",
     ],
     highlighted: true,
   },
   {
-    title: "The Scale",
-    subtitle: "Fractional Oversight",
-    price: "Expert Hourly + Strategic Retainer",
+    title: "Fractional Leadership",
+    subtitle: "Hands-On Product Leadership",
+    price: "Expert Hourly Rate + Retainer",
     description: "Predictable scaling and long-term team retention with ongoing strategic oversight.",
     features: [
       "Fractional CPO/Head of Product",
@@ -131,8 +131,8 @@ export default function Services() {
                 </h2>
                 <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
                   Direct partnership for Founders, Boards, and VCs. I act as the Architect,
-                  designing the leadership seats and 90-day roadmaps that allow your permanent team
-                  to succeed long-term.
+                  defining the strategy, the 90-day roadmap and, where needed, the leadership seats
+                  that allow your permanent team to succeed long-term.
                 </p>
 
                 <div className="mt-8 grid grid-cols-2 gap-4">

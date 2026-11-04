@@ -37,13 +37,13 @@ const PHASES = [
   {
     num: "02",
     title: "Architecture",
-    badge: "PAID FOUNDATIONAL ENGAGEMENT",
+    badge: "FIRST MONTH OF THE RETAINER",
     badgeColor: "bg-electric/20 text-electric border-electric/30",
     description:
-      "The Paid Foundational Engagement. I design the leadership seat and lock in the 90-day execution roadmap. This is the phase where Tri-Party Co-Creation happens, aligning Founder Vision, Expert Leadership, and the Product Roadmap.",
+      "I define the problem and the strategy, design the leadership seat if one is needed, and lock in the 90-day roadmap. This is the phase where Tri-Party Co-Creation happens, aligning Founder Vision, Expert Leadership, and the Product Roadmap.",
     details: [
       "Tri-Party Co-Creation workshop",
-      "Leadership seat design",
+      "Leadership seat design, if needed",
       "90-Day execution roadmap",
       "Board-ready strategy document",
       "Venn Diagram alignment exercise",

@@ -27,17 +27,17 @@ const FAQ_DATA: FAQCategory[] = [
       {
         question: 'What is the "Tri-Party" methodology?',
         answer:
-          "It is the intentional alignment between the Founder/CEO, the Fractional Expert, and the Strategic Roadmap. I make sure all three are synchronized before work begins. This approach eliminates the most common cause of fractional hire failure: misalignment between what the founder envisions, what the expert delivers, and what the roadmap demands.",
+          "It is the intentional alignment between the Founder/CEO, the Fractional Expert, and the Strategic Roadmap. I make sure all three are synchronized before work begins. It works whether the question is a role to fill, a gap to close, an opportunity to test or a strategy to change, because most product problems come down to misalignment between what the founder envisions, what the product leader delivers, and what the roadmap demands.",
       },
       {
         question: "What is the 5-Phase Framework?",
         answer:
-          "The 5-Phase Framework consists of: (1) Diagnostic: complimentary gap analysis, (2) Architecture: paid foundational engagement where I design the leadership seat and 90-day roadmap, (3) Validation: stress-testing against technical and commercial constraints, (4) Execution: active fractional leadership, and (5) Iteration: continuous measurement and optimization.",
+          "The 5-Phase Framework consists of: (1) Diagnostic: complimentary gap analysis, (2) Architecture: the first month of the advisory retainer, where I define the problem and strategy, design the leadership seat if one is needed, and set the 90-day roadmap, (3) Validation: stress-testing against technical and commercial constraints, (4) Execution: active fractional leadership, and (5) Iteration: continuous measurement and optimization.",
       },
       {
         question: "Is the first call a consulting session?",
         answer:
-          "No, it is a complimentary Diagnostic Session focused on problem identification. Detailed solution architecture begins during the formal engagement phase (Phase 02: Architecture), which is a paid foundational engagement.",
+          "No, it is a complimentary Diagnostic Session focused on problem identification. Detailed solution work begins in Phase 02, the first month of the advisory retainer.",
       },
     ],
   },
@@ -52,17 +52,17 @@ const FAQ_DATA: FAQCategory[] = [
       {
         question: "What is the advisory retainer?",
         answer:
-          "Up to 10 hours a month for 3 months, working directly with a CEO or founder whose product has traction and who has no senior product leader. It is a cash retainer, with no equity.",
+          "Up to 10 hours a month for 3 months, working directly with a CEO or founder whose product has traction, whether you have no senior product leader or one who could use a third-party perspective. It is a cash retainer, with no equity.",
       },
       {
         question: "How does pricing work?",
         answer:
-          "I use engagement-based pricing tailored to specific strategic outcomes. The Diagnostic phase is complimentary. The Architecture phase is a fixed-fee strategic engagement. The Scale phase (ongoing fractional leadership) is based on expert hourly rate plus a strategic retainer. I do not publish rates because every engagement is scoped to deliver specific outcomes.",
+          "I use engagement-based pricing tailored to specific strategic outcomes. The Diagnostic phase is complimentary. The advisory retainer is a monthly cash retainer. Ongoing fractional leadership is based on an expert hourly rate plus a retainer. I do not publish rates because every engagement is scoped to deliver specific outcomes.",
       },
       {
-        question: "What is the Architecture Phase?",
+        question: "What happens in the first month of the retainer?",
         answer:
-          "The Architecture Phase is the paid foundational engagement (Phase 02). This is where the real work begins: I run the Tri-Party Co-Creation workshop, design the leadership seat, and build a board-ready 90-day execution strategy. This phase is the foundation upon which all subsequent work is built.",
+          "This is Phase 02 of the framework, Architecture. I run the Tri-Party Co-Creation workshop, define the problem and strategy, design the leadership seat if one is needed, and build a board-ready 90-day execution strategy.",
       },
     ],
   },
@@ -122,7 +122,7 @@ const FAQ_DATA: FAQCategory[] = [
       {
         question: "How long does a typical engagement last?",
         answer:
-          "The Diagnostic is a single 20-minute call. The Architecture Phase typically runs 2-4 weeks. The Scale Phase (ongoing fractional leadership) is structured in 90-day cycles with continuous iteration. The total engagement length depends on your organization\u2019s needs and growth trajectory.",
+          "The Diagnostic is a single 20-minute call. The advisory retainer runs for 3 months. Ongoing fractional leadership is structured in 90-day cycles with continuous iteration. The total engagement length depends on your organization\u2019s needs and growth trajectory.",
       },
     ],
   },

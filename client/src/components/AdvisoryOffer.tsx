@@ -8,7 +8,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react";
 const TERMS = [
   "Up to 10 hours a month",
   "A 3-month engagement",
-  "Working directly with the CEO or founder",
+  "Working directly with the CEO, founder or product leader",
   "Cash retainer, no equity",
 ];
 
@@ -23,11 +23,12 @@ export default function AdvisoryOffer() {
                 Advisory Retainer
               </span>
               <h2 className="mt-3 text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
-                Your Product Has Traction. You Have No Senior Product Leader.
+                Senior Product Judgment, Without a Full-Time Hire
               </h2>
               <p className="mt-5 text-lg text-slate-text leading-relaxed">
-                I work directly with CEOs and founders in exactly that position, for a fixed
-                three months, before you decide whether and who to hire.
+                For companies with traction: you may have no senior product leader, or a product
+                leader who could use a third-party perspective as you scale or pivot. Three months
+                of direct work with me, starting with the problem, the strategy and a 90-day roadmap.
               </p>
               <button
                 onClick={openCalendly}
