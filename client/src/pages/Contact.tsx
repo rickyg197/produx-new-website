@@ -24,6 +24,7 @@ export default function Contact() {
     enquiryType: "",
     outcome: "",
     message: "",
+    website: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -49,6 +50,7 @@ export default function Contact() {
         enquiryType: "",
         outcome: "",
         message: "",
+        website: "",
       });
     } catch {
       toast.error("Something went wrong. Please try again.");
@@ -103,6 +105,16 @@ export default function Contact() {
             {/* Form */}
             <SectionReveal>
               <form onSubmit={handleSubmit} className="bg-white rounded-xl p-8 lg:p-10 border border-border shadow-sm">
+                <input
+                  type="text"
+                  name="website"
+                  value={formData.website}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                  className="hidden"
+                />
                 <h2 className="text-2xl font-bold text-navy mb-8">Get in Touch</h2>
 
                 <div className="grid sm:grid-cols-2 gap-5">
