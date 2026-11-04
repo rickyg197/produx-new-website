@@ -17,7 +17,7 @@ const escapeHtml = (value: string) =>
 const ENQUIRY_LABELS: Record<string, string> = {
   "fractional-leadership": "Fractional product leadership",
   "place-fractional": "Place a fractional PM or designer",
-  advisory: "Advisory support",
+  advisory: "Advisory retainer",
   other: "Something else",
 };
 

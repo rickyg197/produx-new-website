@@ -4,6 +4,7 @@
  */
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import AdvisoryOffer from "@/components/AdvisoryOffer";
 import { SectionReveal, StaggerContainer, StaggerItem } from "@/components/SectionReveal";
 import { Link } from "wouter";
 import { openCalendly } from "@/lib/utils";
@@ -30,7 +31,7 @@ const DISCOVERY_IMG = "/assets/discovery-session.jpg";
 
 const ADVISORY_FOCUS = [
   { icon: Building2, label: "M&A Evaluation" },
-  { icon: Globe2, label: "US/UK Expansion" },
+  { icon: Globe2, label: "US Market Expansion" },
   { icon: TrendingUp, label: "Investor Readiness" },
   { icon: Brain, label: "AI-First Transformation" },
 ];
@@ -93,14 +94,14 @@ export default function Services() {
           <SectionReveal>
             <div className="max-w-3xl">
               <span className="text-electric font-mono text-sm font-medium tracking-wider uppercase">
-                Our Services
+                Services
               </span>
               <h1 className="mt-4 text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
                 Strategic Product Advisory & Fractional Leadership
               </h1>
               <p className="mt-6 text-lg text-slate-text leading-relaxed max-w-2xl">
-                We don&rsquo;t just fill seats&mdash;we architect the product leadership layer that
-                transforms your organization from reactive to predictable.
+                I don&rsquo;t just fill seats. I architect the product leadership layer that transforms
+                your organization from reactive to predictable.
               </p>
               <button
                 onClick={openCalendly}
@@ -113,6 +114,8 @@ export default function Services() {
           </SectionReveal>
         </div>
       </section>
+
+      <AdvisoryOffer />
 
       {/* Service 1: Strategic Product Advisory */}
       <section className="py-20 lg:py-28 bg-warm-white">
@@ -127,7 +130,7 @@ export default function Services() {
                   Executive Advisory & Product Architecture
                 </h2>
                 <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
-                  Direct partnership for Founders, Boards, and VCs. We act as the Architect,
+                  Direct partnership for Founders, Boards, and VCs. I act as the Architect,
                   designing the leadership seats and 90-day roadmaps that allow your permanent team
                   to succeed long-term.
                 </p>
@@ -150,8 +153,8 @@ export default function Services() {
                     <div>
                       <div className="font-bold text-navy text-sm">Cross-Border Advantage</div>
                       <p className="text-muted-foreground text-sm mt-1 leading-relaxed">
-                        Scaling across borders requires a global playbook. We bridge European
-                        engineering excellence with US/UK commercial strategy.
+                        Scaling across borders requires a global playbook. I have run product on both
+                        sides of the Atlantic and can bridge the two.
                       </p>
                     </div>
                   </div>
@@ -197,9 +200,9 @@ export default function Services() {
                   Outcome-Driven Fractional CPOs & Heads of Product
                 </h2>
                 <p className="mt-5 text-lg text-muted-foreground leading-relaxed">
-                  High-level leadership without the overhead. Our engagements begin with a
-                  High-Intensity Strategy Phase. While the initial diagnostic identifies your
-                  challenges, our proprietary framework builds the engine that drives your growth.
+                  High-level leadership without the overhead. My engagements begin with a
+                  High-Intensity Strategy Phase. The initial diagnostic identifies your challenges;
+                  the framework builds the engine that drives your growth.
                 </p>
 
                 <ul className="mt-8 space-y-4">

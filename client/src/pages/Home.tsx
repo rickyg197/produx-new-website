@@ -5,6 +5,8 @@
  */
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Credentials from "@/components/Credentials";
+import AdvisoryOffer from "@/components/AdvisoryOffer";
 import { SectionReveal, StaggerContainer, StaggerItem } from "@/components/SectionReveal";
 import { Link } from "wouter";
 import { openCalendly } from "@/lib/utils";
@@ -34,19 +36,19 @@ const VALUE_PROPS = [
     icon: Target,
     title: "Tri-Party Co-Creation",
     description:
-      "Most fractional hires fail due to misalignment. We treat role definition as product discovery\u2014aligning the Founder, the Expert, and the Roadmap before work begins.",
+      "Most fractional hires fail due to misalignment. I treat role definition as product discovery, aligning the Founder, the Expert, and the Roadmap before work begins.",
   },
   {
     icon: Globe,
-    title: "Cross-Atlantic Pattern Recognition",
+    title: "25 Years of Pattern Recognition",
     description:
-      "25+ years of US-market velocity applied to UK and European growth. We bridge the gap between engineering excellence and global commercial strategy.",
+      "In product since 2000, from Global Crossing to Ticketmaster, Fubo and Vista. I work with US companies first, and with UK and European firms building for the US market.",
   },
   {
     icon: Search,
     title: "Strategic Gap Analysis",
     description:
-      "We use AI-assisted auditing to identify the distance between your strategy and operational reality. We don\u2019t just solve problems; we ensure we are solving the right ones.",
+      "I use AI-assisted auditing to identify the distance between your strategy and operational reality, so the work goes into the right problems, not just the visible ones.",
   },
 ];
 
@@ -65,7 +67,7 @@ const PHASES = [
     badge: "PAID FOUNDATIONAL ENGAGEMENT",
     badgeColor: "bg-electric/20 text-electric",
     description:
-      "The Paid Foundational Engagement. We design the leadership seat and lock in the 90-day execution roadmap.",
+      "The Paid Foundational Engagement. I design the leadership seat and lock in the 90-day execution roadmap.",
     icon: PenTool,
     highlighted: true,
   },
@@ -82,7 +84,7 @@ const PHASES = [
     title: "Execution",
     badge: null,
     badgeColor: "",
-    description: "Your 90-day roadmap comes to life here — led directly by Ricky or by a PRODUX-placed fractional specialist. Either way, we stay involved. We don't hand off and disappear.",
+    description: "Your 90-day roadmap comes to life here, led directly by me or by a fractional specialist I place. Either way, I stay involved. I don't hand off and disappear.",
     icon: Rocket,
   },
   {
@@ -132,37 +134,33 @@ const ENGAGEMENT_TIERS = [
   },
 ];
 
-const CASE_STUDIES = [
+const CASE_STUDIES: {
+  company: string;
+  title: string;
+  description: string;
+  metric?: string;
+  metricLabel?: string;
+}[] = [
   {
-    company: "Webidoo SPA",
+    company: "Webidoo",
     title: "Product Architecture for Global Scale",
     description:
-      "Transformed a service-based business into a product-led organization. Launched 4 AI products; 10,000+ active users in Q1.",
-    metric: "10,000+",
-    metricLabel: "Active Users in Q1",
+      "Helped turn a service-based business into a product-led organization, and launched 3 AI products.",
+    metric: "3",
+    metricLabel: "AI Products Launched",
   },
   {
-    company: "MyConnect.ai & Eventellect",
-    title: "Strategic Executive Search",
+    company: "NEEW",
+    title: "Product Strategy, Roadmap and PRDs",
     description:
-      "Directed the search and 90-day onboarding strategy for senior product roles, eliminating \u201Conboarding lag\u201D and aligning technical roadmaps with commercial goals.",
-    metric: "90-Day",
-    metricLabel: "Onboarding Strategy",
-  },
-  {
-    company: "LatAm FinTech",
-    title: "Financial Inclusion Platform",
-    description:
-      "Architected a financial inclusion platform serving 60+ enterprises; synchronized requirements across 190+ public-sector databases and secured international banking alignment.",
-    metric: "60+",
-    metricLabel: "Enterprises Served",
+      "Product strategy, the product roadmap and the PRDs behind it, delivered as NEEW\u2019s fractional CPO.",
   },
 ];
 
 const TESTIMONIALS = [
   {
-    name: "Adrian Araldi",
-    role: "Head of Product, Webidoo",
+    name: "Adriano Araldi",
+    role: "Former Head of Product, Webidoo",
     quote:
       "ProdUX is the kind of partner every product team needs. They excel at bridging the gap between high-level vision and tactical execution — clear communication and a level of technical insight that keeps projects moving forward efficiently. Highly recommended for any organisation looking to scale their digital product capabilities.",
   },
@@ -172,23 +170,6 @@ const TESTIMONIALS = [
     quote:
       "The team's expertise at ProdUX is unparalleled, and helped us bring a complex product to life on a global scale.",
   },
-  {
-    name: "Tony Delledera",
-    role: "Head of Engineering, Stealth Start-Up",
-    quote:
-      "Their expertise in product analysis, design, and launch was invaluable in bringing my business to life. Ricky is an incredibly professional person, making collaboration both smooth and inspiring.",
-  },
-];
-
-const CLIENT_LOGOS = [
-  { name: "fubo", logo: "/assets/fubo-logo.png" },
-  { name: "yahoo!", logo: "/assets/yahoo-logo.png" },
-  { name: "Webidoo", logo: "/assets/webidoo-logo.png" },
-  { name: "RuleX", logo: "/assets/rulex-logo.png" },
-  { name: "Gartner", logo: "/assets/gartner-logo.png" },
-  { name: "Netflix", logo: "/assets/netflix-logo.png" },
-  { name: "Vistaprint", logo: "/assets/vistaprint-logo.png" },
-  { name: "Ticketmaster", logo: "/assets/ticketmaster-logo.png" },
 ];
 
 const INDUSTRIES = [
@@ -197,7 +178,6 @@ const INDUSTRIES = [
   "FinTech",
   "Entertainment",
   "MarTech",
-  "Healthcare",
 ];
 
 export default function Home() {
@@ -228,7 +208,7 @@ export default function Home() {
               >
                 <span className="w-2 h-2 bg-emerald rounded-full animate-pulse" />
                 <span className="text-electric text-xs font-mono font-medium tracking-wide">
-                  UK &bull; US &bull; EU
+                  US &bull; UK &bull; EU
                 </span>
               </motion.div>
 
@@ -248,9 +228,8 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.35 }}
                 className="mt-6 text-lg text-slate-text leading-relaxed max-w-lg"
               >
-                We connect ambitious companies with exceptional product leadership &mdash; and place
-                the right fractional talent to execute it. Not matched by an algorithm. Selected by
-                a CPO.
+                I give ambitious companies senior product leadership directly, and place the right
+                fractional talent to execute it. Not matched by an algorithm. Selected by a CPO.
               </motion.p>
 
               <motion.div
@@ -270,7 +249,7 @@ export default function Home() {
                   href="/methodology"
                   className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/15 text-white font-medium rounded-lg hover:bg-white/5 transition-all duration-200 text-base"
                 >
-                  Our Methodology
+                  My Methodology
                 </Link>
               </motion.div>
             </div>
@@ -291,8 +270,8 @@ export default function Home() {
                 />
                 {/* Floating stat card */}
                 <div className="absolute -bottom-6 -left-6 bg-navy-light/90 backdrop-blur-md border border-white/10 rounded-xl p-4 shadow-xl">
-                  <div className="text-electric font-mono text-2xl font-bold">25+</div>
-                  <div className="text-slate-text text-xs mt-1">Years of US-Market<br />Pattern Recognition</div>
+                  <div className="text-electric font-mono text-2xl font-bold">Since 2000</div>
+                  <div className="text-slate-text text-xs mt-1">In Product, from Global Crossing<br />to Ticketmaster, Fubo and Vista</div>
                 </div>
               </div>
             </motion.div>
@@ -312,8 +291,8 @@ export default function Home() {
                 High-Velocity Strategy for Global Scale
               </h2>
               <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                We solve for alignment first, ensuring your product organization is built for speed
-                and predictability.
+                I solve for alignment first, so your product organization is built for speed and
+                predictability.
               </p>
             </div>
           </SectionReveal>
@@ -334,6 +313,8 @@ export default function Home() {
         </div>
       </section>
 
+      <AdvisoryOffer />
+
       {/* ========== 5-PHASE METHODOLOGY (Preview) ========== */}
       <section
         className="relative py-20 lg:py-28 overflow-hidden"
@@ -348,14 +329,14 @@ export default function Home() {
           <SectionReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-emerald font-mono text-sm font-medium tracking-wider uppercase">
-                Our Framework
+                My Framework
               </span>
               <h2 className="mt-3 text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
-                Our Proprietary 5-Phase Framework for Predictable Scaling
+                A 5-Phase Framework for Predictable Scaling
               </h2>
               <p className="mt-4 text-lg text-slate-text leading-relaxed">
-                We follow a structured approach to ensure your product organization is built on a
-                foundation of alignment, not just &ldquo;filling seats.&rdquo;
+                A structured approach that builds your product organization on a foundation of
+                alignment, not just &ldquo;filling seats.&rdquo;
               </p>
             </div>
           </SectionReveal>
@@ -417,7 +398,7 @@ export default function Home() {
                 Tri-Party Co-Creation
               </h2>
               <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                Strategy is only as strong as its weakest link. We synchronize Founder Vision,
+                Strategy is only as strong as its weakest link. I synchronize Founder Vision,
                 Expert Leadership, and the 90-Day Roadmap to eliminate friction.
               </p>
             </div>
@@ -537,18 +518,18 @@ export default function Home() {
           <SectionReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-emerald font-mono text-sm font-medium tracking-wider uppercase">
-                Proven Results
+                Selected Work
               </span>
               <h2 className="mt-3 text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
-                Pattern Recognition Across Global Markets
+                Recent Client Work
               </h2>
               <p className="mt-4 text-lg text-slate-text leading-relaxed">
-                Framing world-class experience into your product architecture.
+                What I have actually delivered, for companies I can name.
               </p>
             </div>
           </SectionReveal>
 
-          <StaggerContainer className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          <StaggerContainer className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
             {CASE_STUDIES.map((cs) => (
               <StaggerItem key={cs.company}>
                 <div className="group bg-white/5 border border-white/10 rounded-xl p-8 h-full hover:border-electric/30 transition-all duration-300">
@@ -557,10 +538,12 @@ export default function Home() {
                   </div>
                   <h3 className="text-white font-bold text-lg mb-3">{cs.title}</h3>
                   <p className="text-slate-text text-sm leading-relaxed mb-6">{cs.description}</p>
-                  <div className="pt-4 border-t border-white/10">
-                    <div className="text-electric font-mono text-3xl font-bold">{cs.metric}</div>
-                    <div className="text-slate-text text-xs mt-1">{cs.metricLabel}</div>
-                  </div>
+                  {cs.metric && (
+                    <div className="pt-4 border-t border-white/10">
+                      <div className="text-electric font-mono text-3xl font-bold">{cs.metric}</div>
+                      <div className="text-slate-text text-xs mt-1">{cs.metricLabel}</div>
+                    </div>
+                  )}
                 </div>
               </StaggerItem>
             ))}
@@ -568,31 +551,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ========== CLIENT LOGOS ========== */}
-      <section className="py-16 lg:py-20 bg-white">
-        <div className="container">
-          <SectionReveal>
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="text-2xl lg:text-3xl font-extrabold text-navy tracking-tight">
-                Delivering Results for Leading Companies
-              </h2>
-              <p className="mt-3 text-muted-foreground leading-relaxed">
-                We&rsquo;ve had the privilege of working with innovative companies across various
-                industries, helping them achieve their product development goals.
-              </p>
-            </div>
-          </SectionReveal>
-          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-            {CLIENT_LOGOS.map((logo) => (
-              <StaggerItem key={logo.name}>
-                <div className="flex items-center justify-center h-24 bg-warm-white rounded-xl border border-border hover:border-electric/20 transition-colors">
-                  <img src={logo.logo} alt={logo.name} className="h-10 max-w-[140px] object-contain" />
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
+      <Credentials />
 
       {/* ========== INDUSTRIES ========== */}
       <section className="py-16 lg:py-20 bg-white border-y border-border">
@@ -626,12 +585,12 @@ export default function Home() {
                 Testimonials
               </span>
               <h2 className="mt-3 text-3xl lg:text-4xl font-extrabold text-navy tracking-tight">
-                What Our Partners Say
+                What Clients Say
               </h2>
             </div>
           </SectionReveal>
 
-          <StaggerContainer className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          <StaggerContainer className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
             {TESTIMONIALS.map((t) => (
               <StaggerItem key={t.name}>
                 <div className="bg-white rounded-xl p-8 border border-border h-full">
@@ -670,7 +629,7 @@ export default function Home() {
             </h2>
             <p className="mt-6 text-lg text-slate-text max-w-xl mx-auto leading-relaxed">
               Book a complimentary 20-minute Diagnostic Call to identify your alignment gaps.
-              Qualified partners will be invited to enter our Strategy & Architecture Phase.
+              If there is a fit, I will invite you into the Architecture Phase.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
               <button

@@ -5,6 +5,7 @@
  */
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import Credentials from "@/components/Credentials";
 import { SectionReveal, StaggerContainer, StaggerItem } from "@/components/SectionReveal";
 import { Link } from "wouter";
 import { openCalendly } from "@/lib/utils";
@@ -15,8 +16,6 @@ import {
   Handshake,
   Lightbulb,
   Linkedin,
-  Users,
-  Target,
   Award,
   Globe,
 } from "lucide-react";
@@ -26,57 +25,19 @@ const ABOUT_HERO_IMG = "/assets/about-hero.png";
 const RICKY_IMG = "/assets/ricky-gordon.jpg";
 const STEVEN_IMG = "/assets/steven-gianakouros.jpeg";
 const FEDERICO_IMG = "/assets/federico-salvitte.jpeg";
-const STEVE_MORGAN_IMG = "/assets/Steve-Morgan.jpeg";
 
-const FUBO_LOGO = "/assets/fubo-logo.png";
-const YAHOO_LOGO = "/assets/yahoo-logo.png";
-const WEBIDOO_LOGO = "/assets/webidoo-logo.png";
-const RULEX_LOGO = "/assets/rulex-logo.png";
-
-const STATS = [
-  { value: "100+", label: "Projects Delivered" },
-  { value: "50+", label: "Expert Team Members" },
-  { value: "95%", label: "Client Satisfaction" },
-  { value: "25+", label: "Years Experience" },
-];
-
-const LEADERSHIP_TEAM = [
-  {
-    name: "Ricky Gordon",
-    title: "Founder & CEO",
-    description: "Fractional CPO and product strategist. 25+ years across product, engineering, and organisational design in the US, UK, and Europe.",
-    image: RICKY_IMG,
-    linkedin: "https://www.linkedin.com/in/rickygordon",
-  },
+const ADVISORS = [
   {
     name: "Steven Gianakouros",
-    title: "Chief Design Officer",
+    title: "Advisor",
     description: "Former Netflix Design Manager and VP of Design at Magic. Expert in product design, brand systems, and UX at a global scale.",
     image: STEVEN_IMG,
     linkedin: "https://www.linkedin.com/in/kouros/",
   },
   {
     name: "Federico Salvitti",
-    title: "Chief Marketing Officer",
-    description: "Brand strategy, go-to-market, and growth. Deep expertise across European and US markets in technology and professional services.",
-    image: FEDERICO_IMG,
-    linkedin: "https://www.linkedin.com/in/federicosalvitti/",
-  },
-];
-
-const BOARD_OF_DIRECTORS = [
-
-  {
-    name: "Steve Morgan",
-    title: "Board Director — Finance & FinTech Strategy",
-    description: "Co-Founder of Cultivating Solutions. Former Director at Lehman Brothers and 14-year Citi veteran across Global Markets, Prime Brokerage, and ICG Operations.",
-    image: STEVE_MORGAN_IMG,
-    linkedin: "https://www.linkedin.com/in/steven-morgan-a10080138/",
-  },
-  {
-    name: "Federico Salvitti",
-    title: "Board Director",
-    description: "Also serves as Chief Marketing Officer across PRODUX client engagements and advisory work.",
+    title: "Advisor",
+    description: "Brand strategy, go-to-market, and growth. Deep expertise across US and European markets in technology and professional services.",
     image: FEDERICO_IMG,
     linkedin: "https://www.linkedin.com/in/federicosalvitti/",
   },
@@ -87,31 +48,20 @@ const VALUES = [
     icon: Star,
     title: "Excellence",
     description:
-      "We strive for excellence in everything we do, pushing boundaries to deliver exceptional results for every engagement.",
+      "I hold every engagement to the standard I would want as the CEO paying for it.",
   },
   {
     icon: Handshake,
     title: "Partnership",
     description:
-      "We build lasting partnerships based on trust, transparency, and mutual success. Your outcomes are our outcomes.",
+      "I build lasting working relationships based on trust and transparency. Your outcomes are the measure of my work.",
   },
   {
     icon: Lightbulb,
     title: "Innovation",
     description:
-      "We embrace innovation and creative thinking to solve complex product challenges with AI-first methodologies.",
+      "I use AI-first methods and creative thinking to solve complex product challenges.",
   },
-];
-
-const CLIENT_LOGOS = [
-  { name: "fubo", logo: FUBO_LOGO },
-  { name: "yahoo!", logo: YAHOO_LOGO },
-  { name: "Webidoo", logo: WEBIDOO_LOGO },
-  { name: "RuleX", logo: RULEX_LOGO },
-  { name: "Gartner", logo: "/assets/gartner-logo.png" },
-  { name: "Netflix", logo: "/assets/netflix-logo.png" },
-  { name: "Vistaprint", logo: "/assets/vistaprint-logo.png" },
-  { name: "Ticketmaster", logo: "/assets/ticketmaster-logo.png" },
 ];
 
 export default function About() {
@@ -144,9 +94,9 @@ export default function About() {
                   Success
                 </h1>
                 <p className="mt-6 text-lg text-slate-text leading-relaxed max-w-lg">
-                  We connect ambitious companies with exceptional product leadership to
-                  build organizations that scale predictably. From strategy to execution,
-                  we architect the product layer that drives growth.
+                  I work with ambitious companies, US companies first, to build product
+                  organizations that scale predictably. From strategy to execution, I architect
+                  the product layer that drives growth.
                 </p>
                 <button
                   onClick={openCalendly}
@@ -163,7 +113,7 @@ export default function About() {
                 <div className="rounded-2xl overflow-hidden shadow-2xl shadow-black/30">
                   <img
                     src={ABOUT_HERO_IMG}
-                    alt="PRODUX team strategy session"
+                    alt="Product strategy session"
                     className="w-full h-auto object-cover aspect-[4/3]"
                   />
                 </div>
@@ -179,34 +129,14 @@ export default function About() {
                       <Globe className="text-electric" size={20} />
                     </div>
                     <div>
-                      <div className="text-electric font-bold text-lg">UK &bull; US &bull; EU</div>
-                      <div className="text-slate-text text-xs">Cross-Atlantic Coverage</div>
+                      <div className="text-electric font-bold text-lg">US &bull; UK &bull; EU</div>
+                      <div className="text-slate-text text-xs">Based in London, Working Across the Atlantic</div>
                     </div>
                   </div>
                 </motion.div>
               </div>
             </SectionReveal>
           </div>
-        </div>
-      </section>
-
-      {/* ========== STATS BAR ========== */}
-      <section className="py-12 lg:py-16 bg-white border-b border-border">
-        <div className="container">
-          <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-            {STATS.map((stat) => (
-              <StaggerItem key={stat.label}>
-                <div className="text-center">
-                  <div className="text-4xl lg:text-5xl font-extrabold text-electric tracking-tight">
-                    {stat.value}
-                  </div>
-                  <div className="mt-2 text-sm text-muted-foreground font-medium">
-                    {stat.label}
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
         </div>
       </section>
 
@@ -246,30 +176,28 @@ export default function About() {
             <SectionReveal delay={0.1}>
               <div>
                 <span className="text-electric font-mono text-sm font-medium tracking-wider uppercase">
-                  Our Story
+                  My Story
                 </span>
                 <h2 className="mt-3 text-3xl lg:text-4xl font-extrabold text-navy tracking-tight">
-                  Founded with a Vision for Excellence
+                  Twenty-Five Years in Product
                 </h2>
                 <div className="mt-6 space-y-5 text-muted-foreground leading-relaxed text-base">
                   <p>
-                    Our journey began with a simple yet powerful vision: to bridge the gap between
-                    ambitious companies and exceptional product development leadership. With over 25
-                    years of experience across the US, UK, and European markets, we understood the
-                    challenges organizations face in building and scaling their product organizations.
+                    I have been in product since 2000, from Global Crossing to Ticketmaster, Fubo and
+                    Vista. I started PRODUX to bridge the gap between ambitious companies and the
+                    senior product leadership they need, drawing on 25 years across the US, UK and
+                    European markets.
                   </p>
                   <p>
-                    Today, PRODUX is the trusted partner for growth-stage firms looking to transform
-                    their product vision into reality. Our proprietary Tri-Party Co-Creation methodology
-                    and 5-Phase Framework set us apart&mdash;we don&rsquo;t just fill seats, we architect
-                    the leadership layer that drives predictable outcomes.
+                    Today I work with growth-stage companies to turn their product vision into reality.
+                    My Tri-Party Co-Creation methodology and 5-Phase Framework exist for one reason: I
+                    don&rsquo;t just fill seats, I architect the leadership layer that drives
+                    predictable outcomes.
                   </p>
                   <p>
-                    Our commitment to alignment-first strategy and deep cross-Atlantic pattern recognition
-                    ensures that every engagement begins with clarity and ends with measurable results.
-                    As PRODUX grows, so does the team &mdash; we&rsquo;re building a network of exceptional
-                    fractional specialists who share our commitment to outcome-driven product leadership,
-                    and placing them with the same rigour we&rsquo;d apply to hiring for our own organisation.
+                    Every engagement starts with alignment and is measured on outcomes. Alongside my own
+                    advisory work, I place senior fractional specialists who share that commitment, with
+                    the same rigor I would apply to hiring for my own team.
                   </p>
                 </div>
               </div>
@@ -278,40 +206,26 @@ export default function About() {
         </div>
       </section>
 
-      {/* ========== TEAM SECTION ========== */}
+      {/* ========== ADVISORS ========== */}
       <section className="py-20 lg:py-28 bg-white">
         <div className="container">
           <SectionReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-electric font-mono text-sm font-medium tracking-wider uppercase">
-                The Team
+                Advisors
               </span>
               <h2 className="mt-3 text-3xl lg:text-4xl font-extrabold text-navy tracking-tight">
-                Leadership &amp; Advisory Board
+                The People I Turn To
               </h2>
-              <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                Our diverse team brings together decades of experience in product development,
-                design, and innovation. We&rsquo;re united by our passion for creating exceptional
-                product organizations.
-              </p>
             </div>
           </SectionReveal>
-
-          {/* Leadership Team */}
-          <SectionReveal>
-            <h3 className="text-xl font-bold text-navy mb-8">Leadership Team</h3>
-          </SectionReveal>
-          <StaggerContainer className="grid md:grid-cols-3 gap-8 items-stretch">
-            {LEADERSHIP_TEAM.map((member) => (
+          <StaggerContainer className="grid md:grid-cols-2 gap-8 items-stretch max-w-3xl mx-auto">
+            {ADVISORS.map((member) => (
               <StaggerItem key={member.name} className="h-full">
                 <div className="group relative bg-warm-white rounded-xl p-8 border border-border hover:border-electric/30 transition-all duration-300 hover:shadow-lg hover:shadow-electric/5 text-center h-full flex flex-col">
                   <div className="relative inline-block mb-6">
                     <div className="w-28 h-28 rounded-full overflow-hidden mx-auto ring-2 ring-border group-hover:ring-electric/30 transition-all">
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-full h-full object-cover"
-                      />
+                      <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
                     </div>
                   </div>
                   <h3 className="text-lg font-bold text-navy">{member.name}</h3>
@@ -323,56 +237,11 @@ export default function About() {
                     href={member.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label={`${member.name} on LinkedIn`}
                     className="inline-flex items-center justify-center w-9 h-9 mt-5 rounded-lg bg-electric/10 hover:bg-electric/20 text-electric transition-colors mx-auto"
                   >
                     <Linkedin size={16} />
                   </a>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-
-          {/* Divider */}
-          <div className="my-16 border-t border-border" />
-
-          {/* Board of Directors */}
-          <SectionReveal>
-            <h3 className="text-xl font-bold text-navy mb-8">Board of Directors</h3>
-          </SectionReveal>
-          <StaggerContainer className="grid md:grid-cols-3 gap-8 items-stretch">
-            {BOARD_OF_DIRECTORS.map((member) => (
-              <StaggerItem key={member.name + member.title} className="h-full">
-                <div className="group relative bg-warm-white rounded-xl p-8 border border-border hover:border-electric/30 transition-all duration-300 hover:shadow-lg hover:shadow-electric/5 text-center h-full flex flex-col">
-                  <div className="relative inline-block mb-6">
-                    <div className="w-28 h-28 rounded-full overflow-hidden mx-auto ring-2 ring-border group-hover:ring-electric/30 transition-all bg-navy/10 flex items-center justify-center">
-                      {member.image ? (
-                        <img
-                          src={member.image}
-                          alt={member.name}
-                          className="w-full h-full object-cover"
-                        />
-                      ) : (
-                        <span className="text-navy/30 text-4xl font-bold">
-                          {member.name.charAt(0)}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  <h3 className="text-lg font-bold text-navy">{member.name}</h3>
-                  <p className="text-electric text-sm font-medium mt-1">{member.title}</p>
-                  <p className="text-muted-foreground text-sm mt-3 leading-relaxed flex-1">
-                    {member.description}
-                  </p>
-                  {member.linkedin && (
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center w-9 h-9 mt-5 rounded-lg bg-electric/10 hover:bg-electric/20 text-electric transition-colors mx-auto"
-                    >
-                      <Linkedin size={16} />
-                    </a>
-                  )}
                 </div>
               </StaggerItem>
             ))}
@@ -396,14 +265,13 @@ export default function About() {
           <SectionReveal>
             <div className="text-center max-w-2xl mx-auto mb-16">
               <span className="text-emerald font-mono text-sm font-medium tracking-wider uppercase">
-                Our Values
+                My Values
               </span>
               <h2 className="mt-3 text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
                 Guiding Principles for Success
               </h2>
               <p className="mt-4 text-lg text-slate-text leading-relaxed">
-                Our values shape everything we do and guide us in delivering exceptional
-                results for our clients.
+                The principles behind how I work with every client.
               </p>
             </div>
           </SectionReveal>
@@ -424,32 +292,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* ========== CLIENT LOGOS ========== */}
-      <section className="py-16 lg:py-20 bg-white">
-        <div className="container">
-          <SectionReveal>
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <h2 className="text-2xl lg:text-3xl font-extrabold text-navy tracking-tight">
-                Delivering Results for Leading Companies
-              </h2>
-              <p className="mt-3 text-muted-foreground leading-relaxed">
-                We&rsquo;ve had the privilege of working with innovative companies across various
-                industries, helping them achieve their product development goals.
-              </p>
-            </div>
-          </SectionReveal>
-
-          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-            {CLIENT_LOGOS.map((logo) => (
-              <StaggerItem key={logo.name}>
-                <div className="flex items-center justify-center h-24 bg-warm-white rounded-xl border border-border hover:border-electric/20 transition-colors">
-                  <img src={logo.logo} alt={logo.name} className="h-10 max-w-[140px] object-contain" />
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
+      <Credentials />
 
       {/* ========== CTA ========== */}
       <section className="py-20 lg:py-28 bg-navy overflow-hidden relative">

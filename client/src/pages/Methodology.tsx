@@ -40,7 +40,7 @@ const PHASES = [
     badge: "PAID FOUNDATIONAL ENGAGEMENT",
     badgeColor: "bg-electric/20 text-electric border-electric/30",
     description:
-      "The Paid Foundational Engagement. We design the leadership seat and lock in the 90-day execution roadmap. This is the hero phase where Tri-Party Co-Creation happens\u2014aligning Founder Vision, Expert Leadership, and the Product Roadmap.",
+      "The Paid Foundational Engagement. I design the leadership seat and lock in the 90-day execution roadmap. This is the phase where Tri-Party Co-Creation happens, aligning Founder Vision, Expert Leadership, and the Product Roadmap.",
     details: [
       "Tri-Party Co-Creation workshop",
       "Leadership seat design",
@@ -57,7 +57,7 @@ const PHASES = [
     badge: null,
     badgeColor: "",
     description:
-      "Stress-testing the strategy against technical and commercial constraints. We ensure the architecture holds up under real-world conditions before committing to full execution.",
+      "Stress-testing the strategy against technical and commercial constraints. I make sure the architecture holds up under real-world conditions before committing to full execution.",
     details: [
       "Technical feasibility review",
       "Commercial viability testing",
@@ -72,7 +72,7 @@ const PHASES = [
     badge: null,
     badgeColor: "",
     description:
-      "Your 90-day roadmap comes to life here — led directly by Ricky or by a PRODUX-placed fractional specialist. Either way, we stay involved. We don't hand off and disappear.",
+      "Your 90-day roadmap comes to life here, led directly by me or by a fractional specialist I place. Either way, I stay involved. I don't hand off and disappear.",
     details: [
       "Fractional CPO/Head of Product",
       "Sprint planning & oversight",
@@ -87,7 +87,7 @@ const PHASES = [
     badge: null,
     badgeColor: "",
     description:
-      "Continuous measurement of 90-day outcomes and long-term retention. We don\u2019t just deliver and leave\u2014we iterate, measure, and optimize for sustained growth.",
+      "Continuous measurement of 90-day outcomes and long-term retention. I don\u2019t just deliver and leave. I iterate, measure, and optimize for sustained growth.",
     details: [
       "90-day outcome measurement",
       "Strategy refinement",
@@ -117,14 +117,14 @@ export default function Methodology() {
           <SectionReveal>
             <div className="max-w-3xl">
               <span className="text-emerald font-mono text-sm font-medium tracking-wider uppercase">
-                Our Framework
+                My Framework
               </span>
               <h1 className="mt-4 text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
-                Our Proprietary 5-Phase Framework for Predictable Scaling
+                A 5-Phase Framework for Predictable Scaling
               </h1>
               <p className="mt-6 text-lg text-slate-text leading-relaxed max-w-2xl">
-                We follow a structured approach to ensure your product organization is built on a
-                foundation of alignment, not just &ldquo;filling seats.&rdquo;
+                A structured approach that builds your product organization on a foundation of
+                alignment, not just &ldquo;filling seats.&rdquo;
               </p>
             </div>
           </SectionReveal>
@@ -227,7 +227,7 @@ export default function Methodology() {
                 Tri-Party Co-Creation
               </h2>
               <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                Strategy is only as strong as its weakest link. We synchronize Founder Vision,
+                Strategy is only as strong as its weakest link. I synchronize Founder Vision,
                 Expert Leadership, and the 90-Day Roadmap to eliminate friction.
               </p>
             </div>
@@ -281,8 +281,8 @@ export default function Methodology() {
               Start with a Complimentary Diagnostic
             </h2>
             <p className="mt-6 text-lg text-slate-text max-w-xl mx-auto leading-relaxed">
-              Phase 01 is on us. Book a 20-minute call to identify your alignment gaps and discover
-              if our framework is the right fit.
+              Phase 01 is on me. Book a 20-minute call to identify your alignment gaps and discover
+              if this framework is the right fit.
             </p>
             <Link
               href="/contact"

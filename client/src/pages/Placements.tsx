@@ -28,11 +28,11 @@ const WHO_ITS_FOR = [
   {
     icon: Clock,
     heading: "You can't afford to get this hire wrong",
-    body: "Your product function is a bottleneck, and every week matters. A mis-hire — even a temporary one — costs more than the fee.",
+    body: "Your product function is a bottleneck, and every week matters. A mis-hire, even a temporary one, costs more than the fee.",
   },
   {
     icon: Search,
-    heading: "You need judgment, not just a CV match",
+    heading: "You need judgment, not just a resume match",
     body: "The role is nuanced. It needs someone who can hit the ground running and operate like a senior leader from day one. A keyword search won't find that.",
   },
 ];
@@ -40,18 +40,18 @@ const WHO_ITS_FOR = [
 const HOW_IT_WORKS = [
   {
     step: "01",
-    title: "We diagnose before we match",
-    body: "Most agencies ask what role you need. We ask what problem you're solving. As a practising CPO, Ricky works with you to find the real gap before a single candidate is considered.",
+    title: "I diagnose before I match",
+    body: "Most agencies ask what role you need. I ask what problem you're solving. As a practicing CPO, I work with you to find the real gap before a single candidate is considered.",
   },
   {
     step: "02",
-    title: "Vetted the way we'd hire ourselves",
-    body: "Everyone in our network is personally assessed — how they think, how they handle ambiguity, and whether they have the judgment a fractional role requires. You meet one person. The right one.",
+    title: "Vetted the way I'd hire for myself",
+    body: "I personally assess everyone in my network: how they think, how they handle ambiguity, and whether they have the judgment a fractional role requires. You meet one person. The right one.",
   },
   {
     step: "03",
-    title: "We stay involved after the introduction",
-    body: "Once your person is embedded, we help onboard them, align them to your strategy, and check in to make sure it's working. We're accountable for the outcome.",
+    title: "I stay involved after the introduction",
+    body: "Once your person is embedded, I help onboard them, align them to your strategy, and check in to make sure it's working. I'm accountable for the outcome.",
   },
 ];
 
@@ -93,7 +93,7 @@ export default function Placements() {
                   <span className="text-electric">Placed by Someone Who&rsquo;s Done the Job.</span>
                 </h1>
                 <p className="mt-6 text-lg text-slate-text leading-relaxed max-w-lg">
-                  Most agencies match CVs. We place fractional product talent the way a CPO hires
+                  Most agencies match resumes. I place fractional product talent the way a CPO hires
                   for their own team.
                 </p>
                 <Link
@@ -214,7 +214,7 @@ export default function Placements() {
           <SectionReveal>
             <div className="text-center max-w-2xl mx-auto mb-12">
               <h2 className="text-3xl lg:text-4xl font-extrabold text-navy tracking-tight">
-                Roles We Place
+                Roles I Place
               </h2>
             </div>
           </SectionReveal>
@@ -252,8 +252,8 @@ export default function Placements() {
               Ready to Place the Right Person?
             </h2>
             <p className="mt-6 text-lg text-slate-text max-w-xl mx-auto leading-relaxed">
-              We're selectively taking on new placement clients. If you've been through the agency
-              process and know there has to be a better way — let's talk.
+              I'm selectively taking on new placement clients. If you've been through the agency
+              process and know there has to be a better way, let's talk.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
               <Link

@@ -27,17 +27,17 @@ const FAQ_DATA: FAQCategory[] = [
       {
         question: 'What is the "Tri-Party" methodology?',
         answer:
-          "It is the intentional alignment between the Founder/CEO, the Fractional Expert, and the Strategic Roadmap. We ensure all three are synchronized before work begins. This approach eliminates the most common cause of fractional hire failure: misalignment between what the founder envisions, what the expert delivers, and what the roadmap demands.",
+          "It is the intentional alignment between the Founder/CEO, the Fractional Expert, and the Strategic Roadmap. I make sure all three are synchronized before work begins. This approach eliminates the most common cause of fractional hire failure: misalignment between what the founder envisions, what the expert delivers, and what the roadmap demands.",
       },
       {
         question: "What is the 5-Phase Framework?",
         answer:
-          "Our proprietary 5-Phase Framework consists of: (1) Diagnostic \u2014 complimentary gap analysis, (2) Architecture \u2014 paid foundational engagement where we design the leadership seat and 90-day roadmap, (3) Validation \u2014 stress-testing against technical and commercial constraints, (4) Execution \u2014 active fractional leadership, and (5) Iteration \u2014 continuous measurement and optimization.",
+          "The 5-Phase Framework consists of: (1) Diagnostic: complimentary gap analysis, (2) Architecture: paid foundational engagement where I design the leadership seat and 90-day roadmap, (3) Validation: stress-testing against technical and commercial constraints, (4) Execution: active fractional leadership, and (5) Iteration: continuous measurement and optimization.",
       },
       {
         question: "Is the first call a consulting session?",
         answer:
-          "No, it is a complimentary Diagnostic Session focused on problem identification. Detailed solution architecture begins during our formal engagement phase (Phase 02: Architecture), which is a paid foundational engagement.",
+          "No, it is a complimentary Diagnostic Session focused on problem identification. Detailed solution architecture begins during the formal engagement phase (Phase 02: Architecture), which is a paid foundational engagement.",
       },
     ],
   },
@@ -47,17 +47,22 @@ const FAQ_DATA: FAQCategory[] = [
       {
         question: "What services does PRODUX offer?",
         answer:
-          "We offer three core services: (1) Strategic Product Advisory & Product Architecture \u2014 direct partnership for Founders, Boards, and VCs, (2) Fractional Product Leadership \u2014 outcome-driven Fractional CPOs and Heads of Product, and (3) Fractional Talent Placement, where we source and embed senior fractional product specialists directly into client teams. All services begin with our proprietary Tri-Party Co-Creation methodology.",
+          "Three: (1) Strategic Product Advisory & Product Architecture, a direct partnership with Founders, Boards, and VCs, including my advisory retainer, (2) Fractional Product Leadership, outcome-driven Fractional CPO and Head of Product work, and (3) Fractional Talent Placement, where I source and embed senior fractional product specialists directly into client teams. All of them begin with Tri-Party Co-Creation.",
+      },
+      {
+        question: "What is the advisory retainer?",
+        answer:
+          "Up to 10 hours a month for 3 months, working directly with a CEO or founder whose product has traction and who has no senior product leader. It is a cash retainer, with no equity.",
       },
       {
         question: "How does pricing work?",
         answer:
-          "We use engagement-based pricing tailored to specific strategic outcomes. The Diagnostic phase is complimentary. The Architecture phase is a fixed-fee strategic engagement. The Scale phase (ongoing fractional leadership) is based on expert hourly rate plus a strategic retainer. We do not publish generic hourly rates because every engagement is scoped to deliver specific outcomes.",
+          "I use engagement-based pricing tailored to specific strategic outcomes. The Diagnostic phase is complimentary. The Architecture phase is a fixed-fee strategic engagement. The Scale phase (ongoing fractional leadership) is based on expert hourly rate plus a strategic retainer. I do not publish rates because every engagement is scoped to deliver specific outcomes.",
       },
       {
         question: "What is the Architecture Phase?",
         answer:
-          "The Architecture Phase is our paid foundational engagement (Phase 02). This is where the real work begins \u2014 we conduct the Tri-Party Co-Creation workshop, design the leadership seat, and build a board-ready 90-day execution strategy. This phase is the foundation upon which all subsequent work is built.",
+          "The Architecture Phase is the paid foundational engagement (Phase 02). This is where the real work begins: I run the Tri-Party Co-Creation workshop, design the leadership seat, and build a board-ready 90-day execution strategy. This phase is the foundation upon which all subsequent work is built.",
       },
     ],
   },
@@ -67,17 +72,17 @@ const FAQ_DATA: FAQCategory[] = [
       {
         question: "Can PRODUX place a fractional PM or designer into my team?",
         answer:
-          "Yes. Alongside our advisory and fractional CPO services, we source and place senior fractional product talent — PMs, designers, and product leaders — directly into client teams. Every placement is vetted personally. Visit our Placements page to learn more.",
+          "Yes. Alongside my advisory and fractional CPO work, I source and place senior fractional product talent (PMs, designers, and product leaders) directly into client teams. I vet every placement personally. See the Placements page to learn more.",
       },
       {
         question: "How do you vet the people you place?",
         answer:
-          "Everyone in our placement network has been assessed directly by Ricky — either through prior collaboration, a structured skills review, or both. We only place people we'd hire ourselves.",
+          "I assess everyone in my placement network directly, through prior collaboration, a structured skills review, or both. I only place people I would hire myself.",
       },
       {
         question: "What's the difference between a PRODUX advisory engagement and a placement?",
         answer:
-          "Advisory engagements are led by Ricky directly — strategic, high-level, focused on architecture and direction. Placements are about execution — we embed a senior fractional specialist into your team to build and deliver alongside your people.",
+          "I lead advisory engagements directly: they are strategic, high-level, and focused on architecture and direction. Placements are about execution: I embed a senior fractional specialist into your team to build and deliver alongside your people.",
       },
     ],
   },
@@ -85,19 +90,19 @@ const FAQ_DATA: FAQCategory[] = [
     title: "Global Coverage",
     items: [
       {
-        question: "Do you work with mainland Europe?",
+        question: "Where are you based?",
         answer:
-          "Yes. We provide US/UK-style strategy for European firms looking for global scaling and international investor readiness. Our cross-Atlantic pattern recognition allows us to bridge European engineering excellence with US/UK commercial strategy.",
+          "I am based in London, after more than a decade living and working in the US. I work mainly with US companies, and also with UK and European firms.",
       },
       {
         question: "How do you handle the US/UK time difference?",
         answer:
-          "We provide 24/7 strategic coverage. We manage US-facing strategies during the London day and hand them off to US execution teams in their morning. This ensures continuous momentum without timezone-related delays.",
+          "I schedule working sessions in the overlap between the London day and the US morning and early afternoon, and work asynchronously the rest of the time.",
       },
       {
-        question: "Where is your team located?",
+        question: "Do you work with mainland Europe?",
         answer:
-          "Our team operates across the US, UK, and Europe (EEA). This cross-Atlantic presence gives us unique pattern recognition \u2014 25+ years of US-market velocity applied to UK and European growth contexts.",
+          "Yes. I work with European firms looking to scale globally, enter the US market, or get ready for international investors.",
       },
     ],
   },
@@ -107,12 +112,12 @@ const FAQ_DATA: FAQCategory[] = [
       {
         question: "What industries do you specialize in?",
         answer:
-          "We have proven expertise across eCommerce, SaaS, FinTech, Entertainment, MarTech, and Healthcare. Our pattern recognition spans these industries, allowing us to apply cross-industry insights to your specific challenges.",
+          "eCommerce, SaaS, FinTech, Entertainment, and MarTech. Working across them lets me apply cross-industry insights to your specific challenges.",
       },
       {
         question: "What kind of results can I expect?",
         answer:
-          "Our engagements are structured around 90-day outcomes. Past results include: launching 4 AI products with 10,000+ active users in Q1 (Webidoo SPA), eliminating onboarding lag for senior product hires (MyConnect.ai & Eventellect), and architecting a financial inclusion platform serving 60+ enterprises (LatAm FinTech).",
+          "My engagements are structured around 90-day outcomes. Past work includes launching 3 AI products at Webidoo, and delivering product strategy, the roadmap and PRDs for NEEW.",
       },
       {
         question: "How long does a typical engagement last?",
@@ -222,8 +227,7 @@ export default function FAQ() {
               Still Have Questions?
             </h2>
             <p className="mt-4 text-slate-text max-w-md mx-auto">
-              Book a complimentary Diagnostic Call and we&rsquo;ll answer all your questions in
-              person.
+              Book a complimentary Diagnostic Call and I&rsquo;ll answer them myself.
             </p>
             <button
               onClick={openCalendly}

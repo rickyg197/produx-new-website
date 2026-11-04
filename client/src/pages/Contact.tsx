@@ -8,7 +8,6 @@ import { useState } from "react";
 import { toast } from "sonner";
 import {
   Linkedin,
-  Clock,
   Globe,
   ArrowRight,
 } from "lucide-react";
@@ -39,7 +38,7 @@ export default function Contact() {
         body: JSON.stringify(formData),
       });
       if (!res.ok) throw new Error("Failed");
-      toast.success("Thank you! We'll be in touch within 24 hours to schedule your Diagnostic Call.");
+      toast.success("Thank you! I'll be in touch within 24 hours to schedule your Diagnostic Call.");
       setFormData({
         fullName: "",
         companyName: "",
@@ -90,9 +89,9 @@ export default function Contact() {
               Book a Diagnostic Call
             </h1>
             <p className="mt-6 text-lg text-slate-text leading-relaxed max-w-2xl mx-auto">
-              Book a 20-minute Diagnostic Call to identify your alignment gaps. Qualified partners
-              will be invited to enter our Strategy & Architecture Phase to co-create their custom
-              90-day roadmap.
+              Book a 20-minute Diagnostic Call to identify your alignment gaps. If there is a fit,
+              I will invite you into the Architecture Phase to co-create your custom 90-day
+              roadmap.
             </p>
           </SectionReveal>
         </div>
@@ -188,7 +187,6 @@ export default function Contact() {
                       <option value="technology">Technology / SaaS</option>
                       <option value="fintech">FinTech</option>
                       <option value="ecommerce">eCommerce</option>
-                      <option value="healthcare">Healthcare</option>
                       <option value="entertainment">Entertainment</option>
                       <option value="martech">MarTech</option>
                       <option value="other">Other</option>
@@ -228,7 +226,7 @@ export default function Contact() {
                     <option value="" disabled>Select one...</option>
                     <option value="fractional-leadership">I need fractional product leadership for my business</option>
                     <option value="place-fractional">I want to place a fractional PM or designer into my team</option>
-                    <option value="advisory">I'm interested in advisory support</option>
+                    <option value="advisory">I'm interested in the advisory retainer</option>
                     <option value="other">Something else</option>
                   </select>
                 </div>
@@ -236,7 +234,7 @@ export default function Contact() {
                 <div className="mt-5">
                   <label className="block text-sm font-medium text-navy mb-1.5">
                     {formData.enquiryType === "place-fractional"
-                      ? "Tell us about the role and team you're hiring for"
+                      ? "Tell me about the role and team you're hiring for"
                       : "What is the specific outcome you need to achieve in the next 90 days?"}
                     {" "}<span className="text-red-500">*</span>
                   </label>
@@ -261,7 +259,7 @@ export default function Contact() {
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-warm-white border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-electric/30 focus:border-electric transition-all resize-none"
-                    placeholder="Anything else you'd like us to know..."
+                    placeholder="Anything else you'd like me to know..."
                   />
                 </div>
 
@@ -281,7 +279,7 @@ export default function Contact() {
               <div className="space-y-6">
                 {/* Connect */}
                 <div className="bg-white rounded-xl p-6 border border-border">
-                  <h3 className="text-lg font-bold text-navy mb-4">Connect with Us</h3>
+                  <h3 className="text-lg font-bold text-navy mb-4">Connect</h3>
                   <div className="space-y-4">
                     <a
                       href="https://www.linkedin.com/company/produx-tech"
@@ -297,23 +295,14 @@ export default function Contact() {
 
                 {/* Coverage */}
                 <div className="bg-white rounded-xl p-6 border border-border">
-                  <h3 className="text-lg font-bold text-navy mb-4">Global Coverage</h3>
+                  <h3 className="text-lg font-bold text-navy mb-4">Where I Work</h3>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
                       <Globe size={18} className="text-electric mt-0.5 flex-shrink-0" />
                       <div>
-                        <div className="text-sm font-medium text-navy">UK, US & Europe (EEA)</div>
+                        <div className="text-sm font-medium text-navy">US, UK & Europe</div>
                         <div className="text-xs text-muted-foreground mt-0.5">
-                          Cross-Atlantic strategic coverage
-                        </div>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Clock size={18} className="text-electric mt-0.5 flex-shrink-0" />
-                      <div>
-                        <div className="text-sm font-medium text-navy">24/7 Strategic Coverage</div>
-                        <div className="text-xs text-muted-foreground mt-0.5">
-                          US-facing strategies during London day, handed off to US teams
+                          Based in London, working across the Atlantic
                         </div>
                       </div>
                     </div>
@@ -325,10 +314,10 @@ export default function Contact() {
                   <h3 className="text-lg font-bold text-white mb-3">What Happens Next?</h3>
                   <ol className="space-y-3">
                     {[
-                      "We review your submission within 24 hours",
+                      "I review your submission within 24 hours",
                       "You receive a calendar link for your Diagnostic Call",
                       "20-minute complimentary gap analysis session",
-                      "Qualified partners are invited to the Architecture Phase",
+                      "If there is a fit, I invite you to the Architecture Phase",
                     ].map((step, i) => (
                       <li key={i} className="flex items-start gap-3">
                         <span className="w-6 h-6 rounded-full bg-electric/20 text-electric text-xs font-mono font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
