@@ -7,6 +7,7 @@ import { SectionReveal, StaggerContainer, StaggerItem } from "@/components/Secti
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import {
+  ArrowDown,
   ArrowRight,
   ArrowUpRight,
   Compass,
@@ -98,6 +99,14 @@ const PHASES = [
   },
 ];
 
+const DIAGRAM_CAPTIONS: Record<string, string> = {
+  Diagnostic: "Identify alignment gaps",
+  Architecture: "Lock in the 90-day roadmap",
+  Validation: "Stress-test the strategy",
+  Execution: "Bring the roadmap to life",
+  Iteration: "Measure and plan the next cycle",
+};
+
 export default function Methodology() {
   return (
     <div className="min-h-screen">
@@ -127,6 +136,51 @@ export default function Methodology() {
                 alignment, not just &ldquo;filling seats.&rdquo;
               </p>
             </div>
+          </SectionReveal>
+
+          {/* Process diagram */}
+          <SectionReveal delay={0.1}>
+            <ol
+              aria-label="The five phases, in order"
+              className="mt-12 lg:mt-16 grid gap-8 lg:grid-cols-5 lg:gap-10"
+            >
+              {PHASES.map((phase, i) => (
+                <li key={phase.num} className="relative">
+                  <div
+                    className={`h-full rounded-xl p-4 lg:p-5 flex lg:flex-col items-center lg:items-start gap-4 lg:gap-3 ${
+                      phase.highlighted
+                        ? "bg-electric/15 border-2 border-electric/40"
+                        : "bg-white/5 border border-white/10"
+                    }`}
+                  >
+                    <div className="w-11 h-11 flex-shrink-0 rounded-lg bg-electric/15 flex items-center justify-center">
+                      <phase.icon size={22} className="text-electric" />
+                    </div>
+                    <div>
+                      <div className="text-electric font-mono text-xs font-medium">{phase.num}</div>
+                      <div className="text-white font-bold text-lg leading-snug">{phase.title}</div>
+                      <div className="mt-1 text-slate-text text-sm leading-snug">
+                        {DIAGRAM_CAPTIONS[phase.title]}
+                      </div>
+                    </div>
+                  </div>
+                  {i < PHASES.length - 1 && (
+                    <>
+                      <ArrowDown
+                        size={18}
+                        aria-hidden="true"
+                        className="lg:hidden absolute -bottom-[26px] left-1/2 -translate-x-1/2 text-electric"
+                      />
+                      <ArrowRight
+                        size={18}
+                        aria-hidden="true"
+                        className="hidden lg:block absolute top-1/2 -right-[29px] -translate-y-1/2 text-electric"
+                      />
+                    </>
+                  )}
+                </li>
+              ))}
+            </ol>
           </SectionReveal>
         </div>
       </section>

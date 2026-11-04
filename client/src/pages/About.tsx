@@ -94,9 +94,9 @@ export default function About() {
                   Success
                 </h1>
                 <p className="mt-6 text-lg text-slate-text leading-relaxed max-w-lg">
-                  I work with ambitious companies, US companies first, to build product
-                  organizations that scale predictably. From strategy to execution, I architect
-                  the product layer that drives growth.
+                  I spent years building product at companies like Ticketmaster and Vista, and now I
+                  help small and medium businesses at a turning point make the big product and
+                  strategy decisions.
                 </p>
                 <button
                   onClick={openCalendly}

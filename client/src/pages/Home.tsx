@@ -240,7 +240,7 @@ export default function Home() {
                 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.1] tracking-tight"
               >
                 Senior Product Leadership{" "}
-                <span className="text-electric">for Companies at a Turning Point</span>
+                <span className="text-electric">for Businesses at a Turning Point</span>
               </motion.h1>
 
               <motion.p
@@ -249,9 +249,8 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.35 }}
                 className="mt-6 text-lg text-slate-text leading-relaxed max-w-lg"
               >
-                Scaling, pivoting, or stuck between the two: I advise your product leader or step in
-                where you don&rsquo;t have one. Need more hands? I place the right talent, fractional or
-                full-time, selected by a CPO.
+                I&rsquo;ve led product at companies like Ticketmaster, Fubo and Vista. Now I help small and
+                medium businesses make the big product and strategy calls.
               </motion.p>
 
               <motion.div
@@ -281,7 +280,6 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="hidden lg:block"
             >
               <div className="relative">
                 <div className="absolute -inset-4 bg-electric/10 rounded-2xl blur-2xl" />
@@ -291,7 +289,7 @@ export default function Home() {
                   className="relative rounded-xl shadow-2xl shadow-black/40 w-full object-cover aspect-[4/3]"
                 />
                 {/* Floating stat card */}
-                <div className="absolute -bottom-6 -left-6 bg-navy-light/90 backdrop-blur-md border border-white/10 rounded-xl p-4 shadow-xl">
+                <div className="absolute -bottom-6 -left-4 lg:-left-6 bg-navy-light/90 backdrop-blur-md border border-white/10 rounded-xl p-4 shadow-xl">
                   <div className="text-electric font-mono text-2xl font-bold">Since 2000</div>
                   <div className="text-slate-text text-xs mt-1">In Product, from Global Crossing<br />to Ticketmaster, Fubo and Vista</div>
                 </div>
