@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import { SectionReveal } from "@/components/SectionReveal";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
+import { Link } from "wouter";
 import {
   Linkedin,
   Globe,
@@ -333,6 +334,13 @@ export default function Contact() {
                   {isSubmitting ? "Sending…" : "Submit & Book Diagnostic Call"}
                   {!isSubmitting && <ArrowRight size={18} />}
                 </button>
+                <p className="mt-3 text-xs text-muted-foreground text-center">
+                  See the{" "}
+                  <Link href="/privacy" className="underline hover:text-electric">
+                    Privacy Policy
+                  </Link>{" "}
+                  for how your details are used.
+                </p>
               </form>
             </SectionReveal>
 

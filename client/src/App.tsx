@@ -12,6 +12,7 @@ import Contact from "./pages/Contact";
 import FAQ from "./pages/FAQ";
 import About from "./pages/About";
 import Placements from "./pages/Placements";
+import Privacy from "./pages/Privacy";
 
 declare global {
   interface Window {
@@ -53,6 +54,7 @@ function Router() {
       <Route path={"/contact"} component={Contact} />
       <Route path={"/faq"} component={FAQ} />
       <Route path={"/about"} component={About} />
+      <Route path={"/privacy"} component={Privacy} />
       <Route path={"/404"} component={NotFound} />
       <Route component={NotFound} />
     </Switch>

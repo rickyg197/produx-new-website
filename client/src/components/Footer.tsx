@@ -3,7 +3,7 @@
  * Dark navy, structured grid, blueprint aesthetic
  */
 import { Link } from "wouter";
-import { Linkedin, Facebook, ArrowUpRight } from "lucide-react";
+import { Linkedin, ArrowUpRight } from "lucide-react";
 import { openCalendly } from "@/lib/utils";
 
 export default function Footer() {
@@ -31,12 +31,6 @@ export default function Footer() {
                 className="w-10 h-10 rounded-lg bg-white/5 hover:bg-electric/20 flex items-center justify-center text-slate-text hover:text-electric transition-all duration-200"
               >
                 <Linkedin size={18} />
-              </a>
-              <a
-                href="#"
-                className="w-10 h-10 rounded-lg bg-white/5 hover:bg-electric/20 flex items-center justify-center text-slate-text hover:text-electric transition-all duration-200"
-              >
-                <Facebook size={18} />
               </a>
             </div>
           </div>
@@ -121,12 +115,9 @@ export default function Footer() {
             &copy; 2026 PRODUX LLC. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-slate-text/60 hover:text-slate-text text-xs transition-colors">
+            <Link href="/privacy" className="text-slate-text/60 hover:text-slate-text text-xs transition-colors">
               Privacy Policy
-            </a>
-            <a href="#" className="text-slate-text/60 hover:text-slate-text text-xs transition-colors">
-              Terms of Service
-            </a>
+            </Link>
           </div>
         </div>
       </div>
