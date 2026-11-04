@@ -593,9 +593,9 @@ export default function Home() {
           <StaggerContainer className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
             {TESTIMONIALS.map((t) => (
               <StaggerItem key={t.name}>
-                <div className="bg-white rounded-xl p-8 border border-border h-full">
+                <div className="bg-white rounded-xl p-8 border border-border h-full flex flex-col">
                   <Quote size={24} className="text-electric/30 mb-4" />
-                  <p className="text-foreground leading-relaxed mb-6 italic">
+                  <p className="text-foreground leading-relaxed mb-6 italic flex-1">
                     &ldquo;{t.quote}&rdquo;
                   </p>
                   <div className="pt-4 border-t border-border">
