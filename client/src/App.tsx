@@ -9,9 +9,7 @@ import Home from "./pages/Home";
 import Services from "./pages/Services";
 import Methodology from "./pages/Methodology";
 import Contact from "./pages/Contact";
-import FAQ from "./pages/FAQ";
 import About from "./pages/About";
-import Placements from "./pages/Placements";
 import Privacy from "./pages/Privacy";
 
 declare global {
@@ -49,10 +47,8 @@ function Router() {
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path={"/services"} component={Services} />
-      <Route path={"/placements"} component={Placements} />
       <Route path={"/methodology"} component={Methodology} />
       <Route path={"/contact"} component={Contact} />
-      <Route path={"/faq"} component={FAQ} />
       <Route path={"/about"} component={About} />
       <Route path={"/privacy"} component={Privacy} />
       <Route path={"/404"} component={NotFound} />

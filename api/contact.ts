@@ -14,39 +14,31 @@ const escapeHtml = (value: string) =>
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#39;");
 
-const ENQUIRY_LABELS: Record<string, string> = {
-  "fractional-leadership": "Fractional product leadership",
-  "place-fractional": "Place a PM, designer or product leader",
-  advisory: "Advisory retainer",
-  other: "Something else",
-};
+// Must match the dropdown in client/src/pages/Contact.tsx and the select options on the
+// "Company annual revenue" property in the Notion Clients database.
+const REVENUE_OPTIONS = ["Under $20M", "$20M to $50M", "$50M to $100M", "$100M+"];
+const REVENUE_PROPERTY = "Company annual revenue";
 
 type Lead = {
   fullName: string;
-  companyName: string;
   email: string;
-  phone: string;
-  industry: string;
-  companySize: string;
-  enquiryType: string;
-  outcome: string;
+  companyName: string;
+  role: string;
+  revenue: string;
   message: string;
 };
 
-async function addToNotion(lead: Lead) {
+async function createNotionPage(lead: Lead, includeRevenue: boolean) {
   const token = process.env.NOTION_TOKEN;
   const databaseId = process.env.NOTION_CLIENTS_DATABASE_ID;
   if (!token || !databaseId) throw new Error("Notion is not configured");
 
   const notes = [
     "Source: website form",
-    `Looking for: ${lead.enquiryType}`,
-    `Industry: ${lead.industry}`,
-    `Company size: ${lead.companySize}`,
-    `90-day outcome: ${lead.outcome}`,
-    lead.message ? `Message: ${lead.message}` : "",
+    `Company annual revenue: ${lead.revenue}`,
+    `Role: ${lead.role}`,
+    `What's going on: ${lead.message}`,
   ]
-    .filter(Boolean)
     .join("\n")
     .slice(0, 2000);
 
@@ -54,26 +46,44 @@ async function addToNotion(lead: Lead) {
     rich_text: [{ text: { content } }],
   });
 
-  const response = await fetch("https://api.notion.com/v1/pages", {
+  const properties: Record<string, unknown> = {
+    Name: { title: [{ text: { content: lead.companyName } }] },
+    Company: text(lead.companyName),
+    "Contact Name": text(lead.fullName),
+    Email: { email: lead.email },
+    Title: text(lead.role),
+    Stage: { status: { name: "Lead" } },
+    Notes: text(notes),
+  };
+  if (includeRevenue) {
+    properties[REVENUE_PROPERTY] = { select: { name: lead.revenue } };
+  }
+
+  return fetch("https://api.notion.com/v1/pages", {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
       "Content-Type": "application/json",
       "Notion-Version": "2022-06-28",
     },
-    body: JSON.stringify({
-      parent: { database_id: databaseId },
-      properties: {
-        Name: { title: [{ text: { content: lead.companyName } }] },
-        Company: text(lead.companyName),
-        "Contact Name": text(lead.fullName),
-        Email: { email: lead.email },
-        Phone: { phone_number: lead.phone || null },
-        Stage: { status: { name: "Lead" } },
-        Notes: text(notes),
-      },
-    }),
+    body: JSON.stringify({ parent: { database_id: databaseId }, properties }),
   });
+}
+
+async function addToNotion(lead: Lead) {
+  let response = await createNotionPage(lead, true);
+
+  // If the revenue property is missing or set up differently in Notion, save the lead
+  // without it rather than lose it. Revenue is still in Notes and in the email.
+  if (response.status === 400) {
+    const detail = await response.text();
+    if (detail.includes(REVENUE_PROPERTY)) {
+      console.error("Notion revenue property problem, saving without it:", detail);
+      response = await createNotionPage(lead, false);
+    } else {
+      throw new Error(`Notion 400: ${detail}`);
+    }
+  }
 
   if (!response.ok) {
     throw new Error(`Notion ${response.status}: ${await response.text()}`);
@@ -88,19 +98,16 @@ async function sendEmail(lead: Lead) {
     from: "Produx Contact <noreply@sales.produx.tech>",
     to: "info@produx.tech",
     replyTo: lead.email,
-    subject: `New Diagnostic Call Request — ${lead.fullName} @ ${lead.companyName}`,
+    subject: `New inquiry: ${lead.fullName} at ${lead.companyName} (${lead.revenue})`,
     html: `
-      <h2>New Diagnostic Call Request</h2>
+      <h2>New website inquiry</h2>
       <table cellpadding="8" style="border-collapse:collapse;width:100%;max-width:600px">
         ${row("Name", lead.fullName)}
+        ${row("Work email", lead.email)}
         ${row("Company", lead.companyName)}
-        ${row("Email", lead.email)}
-        ${row("Phone", lead.phone || "—")}
-        ${row("Looking for", lead.enquiryType)}
-        ${row("Industry", lead.industry)}
-        ${row("Company Size", lead.companySize)}
-        ${row("90-day Outcome", lead.outcome)}
-        ${lead.message ? row("Message", lead.message) : ""}
+        ${row("Role", lead.role)}
+        ${row("Company annual revenue", lead.revenue)}
+        ${row("What's going on", lead.message)}
       </table>
     `,
   });
@@ -147,27 +154,22 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: "Spam check failed" });
   }
 
-  const enquiryType = clean(body.enquiryType, 100);
   const lead: Lead = {
     fullName: clean(body.fullName, 200),
-    companyName: clean(body.companyName, 200),
     email: clean(body.email, 320),
-    phone: clean(body.phone, 50),
-    industry: clean(body.industry, 100),
-    companySize: clean(body.companySize, 100),
-    enquiryType: ENQUIRY_LABELS[enquiryType] ?? enquiryType,
-    outcome: clean(body.outcome),
+    companyName: clean(body.companyName, 200),
+    role: clean(body.role, 200),
+    revenue: clean(body.revenue, 50),
     message: clean(body.message),
   };
 
   if (
     !lead.fullName ||
-    !lead.companyName ||
     !lead.email ||
-    !lead.industry ||
-    !lead.companySize ||
-    !lead.enquiryType ||
-    !lead.outcome
+    !lead.companyName ||
+    !lead.role ||
+    !lead.message ||
+    !REVENUE_OPTIONS.includes(lead.revenue)
   ) {
     return res.status(400).json({ error: "Missing required fields" });
   }
@@ -186,7 +188,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   if (emailResult.status === "rejected" && notionResult.status === "rejected") {
-    return res.status(500).json({ error: "Failed to save enquiry" });
+    return res.status(500).json({ error: "Failed to save inquiry" });
   }
 
   return res.status(200).json({ success: true });

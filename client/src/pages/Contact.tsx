@@ -1,5 +1,8 @@
 /*
- * PRODUX Contact Page — Diagnostic Call booking
+ * PRODUX Contact Page
+ * Copy source: Claude doc "produx.tech Site Copy". Company annual revenue is required and is
+ * stored in the Notion Clients database property of the same name. Keep the options in step
+ * with REVENUE_OPTIONS in api/contact.ts.
  */
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,11 +10,8 @@ import { SectionReveal } from "@/components/SectionReveal";
 import { useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 import { Link } from "wouter";
-import {
-  Linkedin,
-  Globe,
-  ArrowRight,
-} from "lucide-react";
+import { openCalendly } from "@/lib/utils";
+import { Linkedin, Globe, ArrowRight } from "lucide-react";
 
 const TURNSTILE_SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY as string | undefined;
 
@@ -29,6 +29,21 @@ type TurnstileApi = {
   reset: (id: string) => void;
   remove: (id: string) => void;
 };
+
+const REVENUE_OPTIONS = ["Under $20M", "$20M to $50M", "$50M to $100M", "$100M+"];
+
+const EMPTY_FORM = {
+  fullName: "",
+  email: "",
+  companyName: "",
+  role: "",
+  revenue: "",
+  message: "",
+  website: "",
+};
+
+const INPUT_CLASS =
+  "w-full px-4 py-3 bg-warm-white border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-electric/30 focus:border-electric transition-all";
 
 function getTurnstile() {
   return (window as unknown as { turnstile?: TurnstileApi }).turnstile;
@@ -69,19 +84,7 @@ export default function Contact() {
     };
   }, []);
 
-  const [formData, setFormData] = useState({
-    fullName: "",
-    companyName: "",
-    email: "",
-    phone: "",
-    industry: "",
-    companySize: "",
-    enquiryType: "",
-    outcome: "",
-    message: "",
-    website: "",
-  });
-
+  const [formData, setFormData] = useState(EMPTY_FORM);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -98,21 +101,10 @@ export default function Contact() {
         body: JSON.stringify({ ...formData, turnstileToken }),
       });
       if (!res.ok) throw new Error("Failed");
-      toast.success("Thank you! I'll be in touch within 24 hours to schedule your Diagnostic Call.");
-      setFormData({
-        fullName: "",
-        companyName: "",
-        email: "",
-        phone: "",
-        industry: "",
-        companySize: "",
-        enquiryType: "",
-        outcome: "",
-        message: "",
-        website: "",
-      });
+      toast.success("Thanks. I\u2019ll be in touch within two working days.");
+      setFormData(EMPTY_FORM);
     } catch {
-      toast.error("Something went wrong. Please try again.");
+      toast.error("Something went wrong. Please try again, or book a call directly.");
     } finally {
       setIsSubmitting(false);
       setTurnstileToken("");
@@ -145,14 +137,13 @@ export default function Contact() {
         <div className="container relative z-10 text-center">
           <SectionReveal>
             <span className="text-electric font-mono text-sm font-medium tracking-wider uppercase">
-              Get Started
+              Contact
             </span>
             <h1 className="mt-4 text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
-              Book a Diagnostic Call
+              Tell me where growth is stuck.
             </h1>
             <p className="mt-6 text-lg text-slate-text leading-relaxed max-w-2xl mx-auto">
-              Book a 20-minute Diagnostic Call to identify your alignment gaps. If there is a fit,
-              the next step is the advisory retainer, starting with your custom 90-day roadmap.
+              A few lines is plenty. I read every inquiry myself and reply within two working days.
             </p>
           </SectionReveal>
         </div>
@@ -162,7 +153,6 @@ export default function Contact() {
       <section className="py-16 lg:py-24 bg-warm-white">
         <div className="container">
           <div className="grid lg:grid-cols-[1fr_380px] gap-12 lg:gap-16">
-            {/* Form */}
             <SectionReveal>
               <form onSubmit={handleSubmit} className="bg-white rounded-xl p-8 lg:p-10 border border-border shadow-sm">
                 <input
@@ -175,152 +165,106 @@ export default function Contact() {
                   aria-hidden="true"
                   className="hidden"
                 />
-                <h2 className="text-2xl font-bold text-navy mb-8">Get in Touch</h2>
 
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-medium text-navy mb-1.5">
-                      Full Name <span className="text-red-500">*</span>
+                    <label htmlFor="fullName" className="block text-sm font-medium text-navy mb-1.5">
+                      Name <span className="text-red-500">*</span>
                     </label>
                     <input
+                      id="fullName"
                       type="text"
                       name="fullName"
                       required
+                      autoComplete="name"
                       value={formData.fullName}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-warm-white border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-electric/30 focus:border-electric transition-all"
-                      placeholder="Your full name"
+                      className={INPUT_CLASS}
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-navy mb-1.5">
-                      Company Name <span className="text-red-500">*</span>
+                    <label htmlFor="email" className="block text-sm font-medium text-navy mb-1.5">
+                      Work email <span className="text-red-500">*</span>
                     </label>
                     <input
-                      type="text"
-                      name="companyName"
-                      required
-                      value={formData.companyName}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-warm-white border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-electric/30 focus:border-electric transition-all"
-                      placeholder="Your company"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-navy mb-1.5">
-                      Work Email <span className="text-red-500">*</span>
-                    </label>
-                    <input
+                      id="email"
                       type="email"
                       name="email"
                       required
+                      autoComplete="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-warm-white border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-electric/30 focus:border-electric transition-all"
+                      className={INPUT_CLASS}
                       placeholder="you@company.com"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-navy mb-1.5">
-                      Phone (optional)
+                    <label htmlFor="companyName" className="block text-sm font-medium text-navy mb-1.5">
+                      Company <span className="text-red-500">*</span>
                     </label>
                     <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
+                      id="companyName"
+                      type="text"
+                      name="companyName"
+                      required
+                      autoComplete="organization"
+                      value={formData.companyName}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-warm-white border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-electric/30 focus:border-electric transition-all"
-                      placeholder="+1 (555) 000-0000"
+                      className={INPUT_CLASS}
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-navy mb-1.5">
-                      Industry <span className="text-red-500">*</span>
+                    <label htmlFor="role" className="block text-sm font-medium text-navy mb-1.5">
+                      Your role <span className="text-red-500">*</span>
                     </label>
-                    <select
-                      name="industry"
+                    <input
+                      id="role"
+                      type="text"
+                      name="role"
                       required
-                      value={formData.industry}
+                      autoComplete="organization-title"
+                      value={formData.role}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-warm-white border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-electric/30 focus:border-electric transition-all"
-                    >
-                      <option value="">Select Industry</option>
-                      <option value="technology">Technology / SaaS</option>
-                      <option value="fintech">FinTech</option>
-                      <option value="ecommerce">eCommerce</option>
-                      <option value="entertainment">Entertainment</option>
-                      <option value="martech">MarTech</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-medium text-navy mb-1.5">
-                      Company Size <span className="text-red-500">*</span>
-                    </label>
-                    <select
-                      name="companySize"
-                      required
-                      value={formData.companySize}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-warm-white border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-electric/30 focus:border-electric transition-all"
-                    >
-                      <option value="">Select Size</option>
-                      <option value="1-50">1-50</option>
-                      <option value="51-500">51-500</option>
-                      <option value="501-1000">501-1,000</option>
-                      <option value="1000+">1,000+</option>
-                    </select>
+                      className={INPUT_CLASS}
+                    />
                   </div>
                 </div>
 
                 <div className="mt-5">
-                  <label className="block text-sm font-medium text-navy mb-1.5">
-                    What are you looking for? <span className="text-red-500">*</span>
+                  <label htmlFor="revenue" className="block text-sm font-medium text-navy mb-1.5">
+                    Company annual revenue <span className="text-red-500">*</span>
                   </label>
                   <select
-                    name="enquiryType"
+                    id="revenue"
+                    name="revenue"
                     required
-                    value={formData.enquiryType}
+                    value={formData.revenue}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-warm-white border border-border rounded-lg text-foreground focus:outline-none focus:ring-2 focus:ring-electric/30 focus:border-electric transition-all"
+                    className={INPUT_CLASS}
                   >
-                    <option value="" disabled>Select one...</option>
-                    <option value="fractional-leadership">I need fractional product leadership for my business</option>
-                    <option value="place-fractional">I want to hire a PM, designer or product leader (fractional or full-time)</option>
-                    <option value="advisory">I'm interested in the advisory retainer</option>
-                    <option value="other">Something else</option>
+                    <option value="" disabled>
+                      Select one
+                    </option>
+                    {REVENUE_OPTIONS.map((option) => (
+                      <option key={option} value={option}>
+                        {option}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
                 <div className="mt-5">
-                  <label className="block text-sm font-medium text-navy mb-1.5">
-                    {formData.enquiryType === "place-fractional"
-                      ? "Tell me about the role and team you're hiring for"
-                      : "What is the specific outcome you need to achieve in the next 90 days?"}
-                    {" "}<span className="text-red-500">*</span>
+                  <label htmlFor="message" className="block text-sm font-medium text-navy mb-1.5">
+                    What&rsquo;s going on? <span className="text-red-500">*</span>
                   </label>
                   <textarea
-                    name="outcome"
-                    required
-                    rows={3}
-                    value={formData.outcome}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 bg-warm-white border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-electric/30 focus:border-electric transition-all resize-none"
-                    placeholder="Describe the key outcome you're targeting..."
-                  />
-                </div>
-
-                <div className="mt-5">
-                  <label className="block text-sm font-medium text-navy mb-1.5">
-                    Additional Message (optional)
-                  </label>
-                  <textarea
+                    id="message"
                     name="message"
-                    rows={3}
+                    required
+                    rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 bg-warm-white border border-border rounded-lg text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-electric/30 focus:border-electric transition-all resize-none"
-                    placeholder="Anything else you'd like me to know..."
+                    className={`${INPUT_CLASS} resize-none`}
                   />
                 </div>
 
@@ -331,9 +275,19 @@ export default function Contact() {
                   disabled={isSubmitting}
                   className="mt-8 w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-electric text-white font-semibold rounded-lg hover:bg-electric-light transition-all duration-200 shadow-lg shadow-electric/25 disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? "Sending…" : "Submit & Book Diagnostic Call"}
+                  {isSubmitting ? "Sending\u2026" : "Send"}
                   {!isSubmitting && <ArrowRight size={18} />}
                 </button>
+                <p className="mt-5 text-sm text-muted-foreground text-center">
+                  Prefer to talk?{" "}
+                  <button
+                    type="button"
+                    onClick={openCalendly}
+                    className="text-electric font-semibold underline hover:text-electric-light"
+                  >
+                    Book 30 minutes directly.
+                  </button>
+                </p>
                 <p className="mt-3 text-xs text-muted-foreground text-center">
                   See the{" "}
                   <Link href="/privacy" className="underline hover:text-electric">
@@ -347,59 +301,30 @@ export default function Contact() {
             {/* Sidebar */}
             <SectionReveal delay={0.2}>
               <div className="space-y-6">
-                {/* Connect */}
                 <div className="bg-white rounded-xl p-6 border border-border">
-                  <h3 className="text-lg font-bold text-navy mb-4">Connect</h3>
-                  <div className="space-y-4">
-                    <a
-                      href="https://www.linkedin.com/company/produx-tech"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-3 text-muted-foreground hover:text-electric transition-colors"
-                    >
-                      <Linkedin size={18} />
-                      <span className="text-sm">LinkedIn</span>
-                    </a>
-                  </div>
+                  <h2 className="text-lg font-bold text-navy mb-4">Connect</h2>
+                  <a
+                    href="https://www.linkedin.com/company/produx-tech"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-muted-foreground hover:text-electric transition-colors"
+                  >
+                    <Linkedin size={18} />
+                    <span className="text-sm">LinkedIn</span>
+                  </a>
                 </div>
 
-                {/* Coverage */}
                 <div className="bg-white rounded-xl p-6 border border-border">
-                  <h3 className="text-lg font-bold text-navy mb-4">Where I Work</h3>
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <Globe size={18} className="text-electric mt-0.5 flex-shrink-0" />
-                      <div>
-                        <div className="text-sm font-medium text-navy">US, UK & Europe</div>
-                        <div className="text-xs text-muted-foreground mt-0.5">
-                          Based in London, working across the Atlantic
-                        </div>
+                  <h2 className="text-lg font-bold text-navy mb-4">Where I work</h2>
+                  <div className="flex items-start gap-3">
+                    <Globe size={18} className="text-electric mt-0.5 flex-shrink-0" />
+                    <div>
+                      <div className="text-sm font-medium text-navy">US and UK</div>
+                      <div className="text-xs text-muted-foreground mt-0.5">
+                        Remote from London, in the room when it counts
                       </div>
                     </div>
                   </div>
-                </div>
-
-                {/* Process note */}
-                <div className="bg-navy rounded-xl p-6 border border-electric/20">
-                  <h3 className="text-lg font-bold text-white mb-3">What Happens Next?</h3>
-                  <ol className="space-y-3">
-                    {[
-                      "I review your submission within 24 hours",
-                      "You receive a calendar link for your Diagnostic Call",
-                      "20-minute complimentary gap analysis session",
-                      "If there is a fit, we discuss the advisory retainer",
-                    ].map((step, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <span className="w-6 h-6 rounded-full bg-electric/20 text-electric text-xs font-mono font-bold flex items-center justify-center flex-shrink-0 mt-0.5">
-                          {i + 1}
-                        </span>
-                        <span className="text-slate-text text-sm">{step}</span>
-                      </li>
-                    ))}
-                  </ol>
-                  <p className="mt-4 text-xs text-slate-text/60 italic">
-                    Note: The advisory retainer is a paid engagement.
-                  </p>
                 </div>
               </div>
             </SectionReveal>

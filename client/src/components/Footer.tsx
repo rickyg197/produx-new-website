@@ -1,5 +1,5 @@
 /*
- * PRODUX Footer — Architectural Blueprint Design
+ * PRODUX Footer
  * Dark navy, structured grid, blueprint aesthetic
  */
 import { Link } from "wouter";
@@ -21,7 +21,7 @@ export default function Footer() {
               />
             </Link>
             <p className="text-slate-text text-sm leading-relaxed max-w-xs">
-              Fractional Product Leadership & Product Architecture for growth-stage firms in the US, UK, and Europe.
+              Senior product leadership for growth-stage companies. No equity. Since 2000.
             </p>
             <div className="flex gap-3 mt-6">
               <a
@@ -41,25 +41,13 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <Link href="/services" className="text-slate-text hover:text-electric text-sm transition-colors flex items-center gap-1 group">
-                  Strategic Product Advisory
-                  <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="text-slate-text hover:text-electric text-sm transition-colors flex items-center gap-1 group">
-                  Fractional Product Leadership
+                  Product advisory retainer
                   <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
               <li>
                 <Link href="/methodology" className="text-slate-text hover:text-electric text-sm transition-colors flex items-center gap-1 group">
-                  5-Phase Methodology
-                  <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                </Link>
-              </li>
-               <li>
-                <Link href="/placements" className="text-slate-text hover:text-electric text-sm transition-colors flex items-center gap-1 group">
-                  Placements
+                  How an engagement runs
                   <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Link>
               </li>
@@ -81,11 +69,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="text-slate-text hover:text-electric text-sm transition-colors">
-                  FAQ
-                </Link>
-              </li>
-              <li>
                 <Link href="/contact" className="text-slate-text hover:text-electric text-sm transition-colors">
                   Contact
                 </Link>
@@ -95,15 +78,15 @@ export default function Footer() {
 
           {/* CTA */}
           <div>
-            <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-5">Get Started</h4>
+            <h4 className="text-white font-semibold text-sm uppercase tracking-wider mb-5">Talk to me</h4>
             <p className="text-slate-text text-sm leading-relaxed mb-5">
-              Book a complimentary 20-minute Diagnostic Call to identify your alignment gaps.
+              Thirty minutes, no pitch deck. If I&rsquo;m not the right fit, I&rsquo;ll tell you.
             </p>
             <button
               onClick={openCalendly}
               className="inline-flex items-center gap-2 px-5 py-2.5 bg-electric text-white text-sm font-semibold rounded-lg hover:bg-electric-light transition-all duration-200"
             >
-              Book a Diagnostic Call
+              Book a call
               <ArrowUpRight size={16} />
             </button>
           </div>

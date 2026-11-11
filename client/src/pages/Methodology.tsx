@@ -1,111 +1,57 @@
 /*
- * PRODUX Methodology Page — 5-Phase Framework + Tri-Party Venn
+ * PRODUX Methodology Page: how a retainer engagement runs, in five phases that repeat.
+ * Copy source: Claude doc "produx.tech Site Copy". Diagram captions are short forms of the phase text.
  */
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { SectionReveal, StaggerContainer, StaggerItem } from "@/components/SectionReveal";
-import { Link } from "wouter";
-import { motion } from "framer-motion";
-import {
-  ArrowDown,
-  ArrowRight,
-  ArrowUpRight,
-  Compass,
-  PenTool,
-  CheckCircle2,
-  Rocket,
-  RefreshCw,
-} from "lucide-react";
+import ClosingBand from "@/components/ClosingBand";
+import { SectionReveal } from "@/components/SectionReveal";
+import { ArrowDown, ArrowRight, Ear, Search, Target, Compass, RefreshCw } from "lucide-react";
 
 const METHODOLOGY_BG = "/assets/methodology-bg.jpg";
 
 const PHASES = [
   {
     num: "01",
-    title: "Diagnostic",
-    badge: "COMPLIMENTARY",
-    badgeColor: "bg-emerald/20 text-emerald border-emerald/30",
+    title: "Listen",
+    caption: "What growth needs from the product",
     description:
-      "High-level identification of alignment gaps and immediate bottlenecks. This is a complimentary 20-minute session designed to assess strategic fit and identify the most critical areas of misalignment in your product organization.",
-    details: [
-      "Alignment gap identification",
-      "Bottleneck assessment",
-      "Strategic fit evaluation",
-      "Immediate opportunity mapping",
-    ],
-    icon: Compass,
+      "Two weeks with you, your product leader and the numbers. What does growth need from the product, and what\u2019s in the way?",
+    icon: Ear,
   },
   {
     num: "02",
-    title: "Architecture",
-    badge: "FIRST MONTH OF THE RETAINER",
-    badgeColor: "bg-electric/20 text-electric border-electric/30",
+    title: "Diagnose",
+    caption: "The few things that matter most",
     description:
-      "I define the problem and the strategy, design the leadership seat if one is needed, and lock in the 90-day roadmap. This is the phase where Tri-Party Co-Creation happens, aligning Founder Vision, Expert Leadership, and the Product Roadmap.",
-    details: [
-      "Tri-Party Co-Creation workshop",
-      "Leadership seat design, if needed",
-      "90-Day execution roadmap",
-      "Board-ready strategy document",
-      "Venn Diagram alignment exercise",
-    ],
-    icon: PenTool,
-    highlighted: true,
+      "A short, plain read-out: the three to five things that matter most, and what to stop doing.",
+    icon: Search,
   },
   {
     num: "03",
-    title: "Validation",
-    badge: null,
-    badgeColor: "",
+    title: "Decide",
+    caption: "The bets, the order, what success looks like",
     description:
-      "Stress-testing the strategy against technical and commercial constraints. I make sure the architecture holds up under real-world conditions before committing to full execution.",
-    details: [
-      "Technical feasibility review",
-      "Commercial viability testing",
-      "Stakeholder alignment check",
-      "Risk assessment & mitigation",
-    ],
-    icon: CheckCircle2,
+      "Agree the bets, the order and what success looks like, in terms the board will recognize.",
+    icon: Target,
   },
   {
     num: "04",
-    title: "Execution",
-    badge: null,
-    badgeColor: "",
+    title: "Steer",
+    caption: "Your team executes, I stay close",
     description:
-      "Your 90-day roadmap comes to life here, led directly by me or by a specialist I place. Either way, I stay involved. I don't hand off and disappear.",
-    details: [
-      "Fractional CPO/Head of Product",
-      "Sprint planning & oversight",
-      "Team coaching & mentoring",
-      "Stakeholder communication",
-    ],
-    icon: Rocket,
+      "Your team executes. I stay close: reviews, hard calls, unblocking, and keeping the plan honest.",
+    icon: Compass,
   },
   {
     num: "05",
-    title: "Iteration",
-    badge: null,
-    badgeColor: "",
+    title: "Review",
+    caption: "Every quarter, reset the bets",
     description:
-      "Continuous measurement of 90-day outcomes and long-term retention. I don\u2019t just deliver and leave. I iterate, measure, and optimize for sustained growth.",
-    details: [
-      "90-day outcome measurement",
-      "Strategy refinement",
-      "Team retention optimization",
-      "Next-cycle planning",
-    ],
+      "Every quarter we look at what moved and reset the bets. If I\u2019m no longer the best use of your money, I\u2019ll say so.",
     icon: RefreshCw,
   },
 ];
-
-const DIAGRAM_CAPTIONS: Record<string, string> = {
-  Diagnostic: "Identify alignment gaps",
-  Architecture: "Lock in the 90-day roadmap",
-  Validation: "Stress-test the strategy",
-  Execution: "Bring the roadmap to life",
-  Iteration: "Measure and plan the next cycle",
-};
 
 export default function Methodology() {
   return (
@@ -126,14 +72,14 @@ export default function Methodology() {
           <SectionReveal>
             <div className="max-w-3xl">
               <span className="text-emerald font-mono text-sm font-medium tracking-wider uppercase">
-                My Framework
+                Methodology
               </span>
               <h1 className="mt-4 text-4xl lg:text-5xl font-extrabold text-white leading-tight tracking-tight">
-                A 5-Phase Framework for Predictable Scaling
+                How an engagement runs
               </h1>
               <p className="mt-6 text-lg text-slate-text leading-relaxed max-w-2xl">
-                A structured approach that builds your product organization on a foundation of
-                alignment, not just &ldquo;filling seats.&rdquo;
+                Advice is only worth something if your team can act on it. So the work follows the
+                same shape every time, then repeats.
               </p>
             </div>
           </SectionReveal>
@@ -146,22 +92,14 @@ export default function Methodology() {
             >
               {PHASES.map((phase, i) => (
                 <li key={phase.num} className="relative">
-                  <div
-                    className={`h-full rounded-xl p-4 lg:p-5 flex lg:flex-col items-center lg:items-start gap-4 lg:gap-3 ${
-                      phase.highlighted
-                        ? "bg-electric/15 border-2 border-electric/40"
-                        : "bg-white/5 border border-white/10"
-                    }`}
-                  >
+                  <div className="h-full rounded-xl p-4 lg:p-5 flex lg:flex-col items-center lg:items-start gap-4 lg:gap-3 bg-white/5 border border-white/10">
                     <div className="w-11 h-11 flex-shrink-0 rounded-lg bg-electric/15 flex items-center justify-center">
                       <phase.icon size={22} className="text-electric" />
                     </div>
                     <div>
                       <div className="text-electric font-mono text-xs font-medium">{phase.num}</div>
                       <div className="text-white font-bold text-lg leading-snug">{phase.title}</div>
-                      <div className="mt-1 text-slate-text text-sm leading-snug">
-                        {DIAGRAM_CAPTIONS[phase.title]}
-                      </div>
+                      <div className="mt-1 text-slate-text text-sm leading-snug">{phase.caption}</div>
                     </div>
                   </div>
                   {i < PHASES.length - 1 && (
@@ -185,169 +123,41 @@ export default function Methodology() {
         </div>
       </section>
 
-      {/* Phase Details */}
+      {/* Phase details */}
       <section className="py-20 lg:py-28 bg-warm-white">
         <div className="container">
-          <div className="space-y-8">
+          <div className="space-y-6 max-w-4xl mx-auto">
             {PHASES.map((phase, i) => (
               <SectionReveal key={phase.num} delay={i * 0.05}>
-                <div
-                  className={`relative rounded-xl p-8 lg:p-10 transition-all duration-300 ${
-                    phase.highlighted
-                      ? "bg-navy border-2 border-electric/30 shadow-xl"
-                      : "bg-white border border-border"
-                  }`}
-                >
-                  <div className="grid lg:grid-cols-[auto_1fr] gap-8 items-start">
-                    {/* Phase Number */}
-                    <div className="flex items-start gap-6">
-                      <span
-                        className={`font-mono text-6xl lg:text-7xl font-bold leading-none ${
-                          phase.highlighted ? "text-electric/30" : "text-electric/15"
-                        }`}
-                      >
-                        {phase.num}
-                      </span>
-                    </div>
-
-                    {/* Content */}
+                <div className="rounded-xl p-8 lg:p-10 bg-white border border-border">
+                  <div className="flex items-start gap-6">
+                    <span className="font-mono text-5xl lg:text-6xl font-bold leading-none text-electric/15">
+                      {phase.num}
+                    </span>
                     <div>
-                      <div className="flex items-center gap-3 flex-wrap">
-                        <phase.icon
-                          size={22}
-                          className={phase.highlighted ? "text-electric" : "text-electric"}
-                        />
-                        <h3
-                          className={`text-2xl font-bold ${
-                            phase.highlighted ? "text-white" : "text-navy"
-                          }`}
-                        >
-                          {phase.title}
-                        </h3>
-                        {phase.badge && (
-                          <span
-                            className={`px-3 py-1 text-[11px] font-mono font-medium rounded-full border ${phase.badgeColor}`}
-                          >
-                            {phase.badge}
-                          </span>
-                        )}
+                      <div className="flex items-center gap-3">
+                        <phase.icon size={22} className="text-electric" />
+                        <h2 className="text-2xl font-bold text-navy">{phase.title}</h2>
                       </div>
-
-                      <p
-                        className={`mt-4 text-base leading-relaxed max-w-2xl ${
-                          phase.highlighted ? "text-slate-text" : "text-muted-foreground"
-                        }`}
-                      >
+                      <p className="mt-4 text-base leading-relaxed text-muted-foreground">
                         {phase.description}
                       </p>
-
-                      <ul className="mt-6 grid sm:grid-cols-2 gap-3">
-                        {phase.details.map((d) => (
-                          <li key={d} className="flex items-center gap-2">
-                            <CheckCircle2
-                              size={14}
-                              className={`flex-shrink-0 ${
-                                phase.highlighted ? "text-emerald" : "text-electric"
-                              }`}
-                            />
-                            <span
-                              className={`text-sm ${
-                                phase.highlighted ? "text-slate-text" : "text-muted-foreground"
-                              }`}
-                            >
-                              {d}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
                     </div>
                   </div>
                 </div>
               </SectionReveal>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Tri-Party Venn Diagram */}
-      <section className="py-20 lg:py-28 bg-white">
-        <div className="container">
-          <SectionReveal>
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="text-electric font-mono text-sm font-medium tracking-wider uppercase">
-                The Alignment Zone
-              </span>
-              <h2 className="mt-3 text-3xl lg:text-4xl font-extrabold text-navy tracking-tight">
-                Tri-Party Co-Creation
-              </h2>
-              <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                Strategy is only as strong as its weakest link. I synchronize Founder Vision,
-                Expert Leadership, and the 90-Day Roadmap to eliminate friction.
-              </p>
-            </div>
-          </SectionReveal>
 
           <SectionReveal>
-            <div className="relative max-w-xl mx-auto">
-              <svg viewBox="0 0 500 440" className="w-full" xmlns="http://www.w3.org/2000/svg">
-                {/* Circle 1 - Founder Vision (top-left) */}
-                <circle cx="195" cy="175" r="140" fill="oklch(0.60 0.20 260 / 0.08)" stroke="oklch(0.60 0.20 260 / 0.3)" strokeWidth="2" />
-                {/* Circle 2 - Expert Leadership (top-right) */}
-                <circle cx="305" cy="175" r="140" fill="oklch(0.65 0.17 160 / 0.08)" stroke="oklch(0.65 0.17 160 / 0.3)" strokeWidth="2" />
-                {/* Circle 3 - 90-Day Architecture (bottom-center) */}
-                <circle cx="250" cy="275" r="140" fill="oklch(0.15 0.04 260 / 0.05)" stroke="oklch(0.15 0.04 260 / 0.2)" strokeWidth="2" />
-
-                {/* Labels positioned outside overlap zones */}
-                <text x="130" y="105" textAnchor="middle" className="fill-electric text-sm font-bold" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "14px", fontWeight: 700 }}>Founder</text>
-                <text x="130" y="122" textAnchor="middle" className="fill-electric text-sm font-bold" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "14px", fontWeight: 700 }}>Vision</text>
-
-                <text x="370" y="105" textAnchor="middle" className="fill-emerald text-sm font-bold" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "14px", fontWeight: 700 }}>Expert</text>
-                <text x="370" y="122" textAnchor="middle" className="fill-emerald text-sm font-bold" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "14px", fontWeight: 700 }}>Leadership</text>
-
-                <text x="250" y="340" textAnchor="middle" className="fill-navy text-sm font-bold" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "14px", fontWeight: 700 }}>90-Day Product</text>
-                <text x="250" y="360" textAnchor="middle" className="fill-navy text-sm font-bold" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "14px", fontWeight: 700 }}>Architecture</text>
-
-                {/* Center badge background */}
-                <rect x="195" y="190" width="110" height="48" rx="12" fill="oklch(0.60 0.20 260)" />
-                <text x="250" y="210" textAnchor="middle" style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "8px", fontWeight: 500, letterSpacing: "0.15em", fill: "white", opacity: 0.8 }}>THE</text>
-                <text x="250" y="228" textAnchor="middle" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: "13px", fontWeight: 800, fill: "white" }}>Alignment Zone</text>
-              </svg>
-            </div>
-          </SectionReveal>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-20 lg:py-28 bg-navy-dark overflow-hidden relative">
-        <div className="absolute inset-0 opacity-5">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                "linear-gradient(rgba(37,99,235,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.3) 1px, transparent 1px)",
-              backgroundSize: "60px 60px",
-            }}
-          />
-        </div>
-        <div className="container relative z-10 text-center">
-          <SectionReveal>
-            <h2 className="text-3xl lg:text-5xl font-extrabold text-white tracking-tight max-w-3xl mx-auto">
-              Start with a Complimentary Diagnostic
-            </h2>
-            <p className="mt-6 text-lg text-slate-text max-w-xl mx-auto leading-relaxed">
-              Phase 01 is on me. Book a 20-minute call to identify your alignment gaps and discover
-              if this framework is the right fit.
+            <p className="mt-16 text-center text-2xl lg:text-3xl font-extrabold text-navy tracking-tight max-w-3xl mx-auto">
+              I bring the pattern recognition. Your team brings the hands. That&rsquo;s the deal.
             </p>
-            <Link
-              href="/contact"
-              className="mt-10 inline-flex items-center gap-2 px-8 py-4 bg-electric text-white font-semibold rounded-lg hover:bg-electric-light transition-all duration-200 shadow-lg shadow-electric/25 text-base"
-            >
-              Book a Diagnostic Call
-              <ArrowUpRight size={18} />
-            </Link>
           </SectionReveal>
         </div>
       </section>
+
+      <ClosingBand />
 
       <Footer />
     </div>

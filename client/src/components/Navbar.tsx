@@ -1,5 +1,5 @@
 /* 
- * PRODUX Navbar — Light navbar for contrast with original colored logo
+ * PRODUX Navbar: light navbar for contrast with original colored logo
  * White/light bg so blue "prod" + dark "ux" are fully visible
  */
 import { useState, useEffect } from "react";
@@ -11,10 +11,8 @@ import { openCalendly } from "@/lib/utils";
 const NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/services", label: "Services" },
-  { href: "/placements", label: "Placements" },
-  { href: "/about", label: "About" },
   { href: "/methodology", label: "Methodology" },
-  { href: "/faq", label: "FAQ" },
+  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -42,7 +40,7 @@ export default function Navbar() {
       }`}
     >
       <div className="container flex items-center justify-between h-18 lg:h-20">
-        {/* Logo — original colors (blue prod + dark ux) */}
+        {/* Logo: original colors (blue prod + dark ux) */}
         <Link href="/" className="flex items-center group">
           <img
             src="/assets/produx-logo.svg"
@@ -83,7 +81,7 @@ export default function Navbar() {
           onClick={openCalendly}
           className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 bg-[#0272D9] text-white text-sm font-semibold rounded-lg hover:bg-[#0260b8] transition-all duration-200 shadow-lg shadow-[#0272D9]/20 hover:shadow-[#0272D9]/30"
         >
-          Book a Diagnostic Call
+          Book a call
         </button>
 
         {/* Mobile Menu Toggle */}
@@ -126,7 +124,7 @@ export default function Navbar() {
                 onClick={openCalendly}
                 className="mt-4 px-5 py-3 bg-[#0272D9] text-white text-center font-semibold rounded-lg"
               >
-                Book a Diagnostic Call
+                Book a call
               </button>
             </nav>
           </motion.div>

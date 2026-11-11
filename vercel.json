@@ -3,6 +3,11 @@
   "outputDirectory": "dist/public",
   "installCommand": "npm install",
   "framework": null,
+  "redirects": [
+    { "source": "/products", "destination": "/services", "permanent": true },
+    { "source": "/placements", "destination": "/services", "permanent": true },
+    { "source": "/faq", "destination": "/services", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/((?!api/|favicon\\.|assets/).*)", "destination": "/index.html" }
   ]

@@ -15,7 +15,7 @@ const SECTIONS: { title: string; paragraphs?: string[]; items?: string[] }[] = [
   {
     title: "What PRODUX collects",
     items: [
-      "Contact form: your name, company, work email, phone number if you give one, industry, company size, what you are looking for, and anything you write in the message fields.",
+      "Contact form: your name, work email, company, your role, your company\u2019s annual revenue band, and anything you write in the message field.",
       "Booking a call: Calendly collects the details you enter when you book, and shares them with PRODUX so the call can happen.",
       "Site usage: Google Analytics records how the site is used, such as pages viewed, approximate location, and device and browser type. It uses cookies to do this.",
       "Spam protection: Cloudflare Turnstile checks whether a form submission comes from a person, using technical signals from your browser.",
@@ -24,13 +24,13 @@ const SECTIONS: { title: string; paragraphs?: string[]; items?: string[] }[] = [
   {
     title: "How your information is used",
     items: [
-      "To reply to your enquiry and arrange any call you ask for.",
-      "To keep a record of enquiries and manage any working relationship that follows.",
+      "To reply to your inquiry and arrange any call you ask for.",
+      "To keep a record of inquiries and manage any working relationship that follows.",
       "To understand how the site is used and improve it.",
       "To keep the form free of spam and abuse.",
     ],
     paragraphs: [
-      "For people in the UK and EU, the legal basis is PRODUX's legitimate interest in responding to enquiries, running its business and protecting its site, or steps you ask for before entering a contract. PRODUX does not sell your information.",
+      "For people in the UK and EU, the legal basis is PRODUX's legitimate interest in responding to inquiries, running its business and protecting its site, or steps you ask for before entering a contract. PRODUX does not sell your information.",
     ],
   },
   {
@@ -39,8 +39,8 @@ const SECTIONS: { title: string; paragraphs?: string[]; items?: string[] }[] = [
       "These service providers process information on PRODUX's behalf. Some of them store or process it in the US and other countries outside the UK and EU.",
     ],
     items: [
-      "Notion: stores form enquiries.",
-      "Resend: delivers form enquiries by email.",
+      "Notion: stores form inquiries.",
+      "Resend: delivers form inquiries by email.",
       "Google Workspace: receives and stores email.",
       "Vercel: hosts this site.",
       "Google Analytics: measures site usage.",
@@ -51,7 +51,7 @@ const SECTIONS: { title: string; paragraphs?: string[]; items?: string[] }[] = [
   {
     title: "How long it is kept",
     paragraphs: [
-      "Enquiries are kept for as long as they are needed to respond and manage any relationship that follows, and for any period required by law. Ask at any time and PRODUX will delete what it does not need to keep.",
+      "Inquiries are kept for as long as they are needed to respond and manage any relationship that follows, and for any period required by law. Ask at any time and PRODUX will delete what it does not need to keep.",
     ],
   },
   {
