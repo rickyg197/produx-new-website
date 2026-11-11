@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 import ClosingBand from "@/components/ClosingBand";
 import { SectionReveal } from "@/components/SectionReveal";
 import { openCalendly } from "@/lib/utils";
-import { ArrowRight, CheckCircle2, XCircle, Users } from "lucide-react";
+import { ArrowRight, CheckCircle2, XCircle, Users, UserX } from "lucide-react";
 
 const COVERS = [
   "Product strategy and the roadmap, tied to your growth targets.",
@@ -115,8 +115,8 @@ export default function Services() {
       {/* People + fit */}
       <section className="py-20 lg:py-28 bg-white">
         <div className="container">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-            <SectionReveal>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+            <SectionReveal className="h-full">
               <div className="bg-warm-white rounded-xl p-8 lg:p-10 border border-border h-full">
                 <div className="w-12 h-12 rounded-lg bg-electric/10 flex items-center justify-center mb-6">
                   <Users className="text-electric" size={24} />
@@ -133,12 +133,15 @@ export default function Services() {
               </div>
             </SectionReveal>
 
-            <SectionReveal delay={0.15}>
+            <SectionReveal delay={0.15} className="h-full">
               <div className="bg-warm-white rounded-xl p-8 lg:p-10 border border-border h-full">
+                <div className="w-12 h-12 rounded-lg bg-electric/10 flex items-center justify-center mb-6">
+                  <UserX className="text-electric" size={24} />
+                </div>
                 <h2 className="text-2xl font-extrabold text-navy tracking-tight">
                   This is not for you if
                 </h2>
-                <ul className="mt-6 space-y-4">
+                <ul className="mt-4 space-y-4">
                   {NOT_FOR_YOU.map((item) => (
                     <li key={item} className="flex items-start gap-3">
                       <XCircle size={20} className="mt-0.5 flex-shrink-0 text-muted-foreground" />
