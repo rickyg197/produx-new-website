@@ -22,13 +22,13 @@ export default function Credentials() {
           </div>
         </SectionReveal>
         <SectionReveal>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-3 gap-3 sm:gap-6 max-w-4xl mx-auto">
             {LED_PRODUCT.map((item) => (
               <div
                 key={item.name}
-                className="flex items-center justify-center h-24 bg-warm-white rounded-xl border border-border"
+                className="flex items-center justify-center h-16 sm:h-24 px-2 bg-warm-white rounded-xl border border-border"
               >
-                <img src={item.logo} alt={item.name} className="h-10 max-w-[140px] object-contain" />
+                <img src={item.logo} alt={item.name} className="h-6 sm:h-10 max-w-full sm:max-w-[140px] object-contain" />
               </div>
             ))}
           </div>
